@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
@@ -16,7 +17,7 @@ public class User {
 
     private String name;
 
-    private List<masterList> masterList;
+    private List<ToDoList> masterList;
 
     public User(String name, Long id) {
         this.id = id;
@@ -45,11 +46,11 @@ public class User {
         this.name = name;
     }
 
-    public ArrayList getMasterList() {
+    public List<ToDoList> getMasterList() {
         return masterList;
     }
 
-    public void setMasterList(ArrayList masterList) {
+    public void setMasterList(List<ToDoList> masterList) {
         this.masterList = masterList;
     }
 }
