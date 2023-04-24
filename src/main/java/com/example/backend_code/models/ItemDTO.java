@@ -1,45 +1,27 @@
 package com.example.backend_code.models;
-import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "items")
-public class Item {
+public class ItemDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column
     private String taskName;
 
-    @Column
     private String dueDate;
 
-    @ManyToOne
-    @JoinColumn(name = "todolist_id")
-    private ToDoList toDoList;
+    private List<Long> listIds;
 
-    @Column
     private boolean isCompleted;
-    public Item(String taskName, String dueDate, ToDoList toDoList){
+
+    public ItemDTO(String taskName, String dueDate, List listIds){
         this.taskName = taskName;
         this.dueDate = dueDate;
-        this.toDoList = toDoList;
+        this.listIds = listIds;
         this.isCompleted = false;
     }
 
-    public Item(){
+    public ItemDTO(){
 
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getTaskName() {
@@ -58,12 +40,12 @@ public class Item {
         this.dueDate = dueDate;
     }
 
-    public ToDoList getToDoList() {
-        return toDoList;
+    public List<Long> getListIds() {
+        return listIds;
     }
 
-    public void setToDoList(ToDoList toDoList) {
-        this.toDoList = toDoList;
+    public void setListIds(List<Long> listIds) {
+        this.listIds = listIds;
     }
 
     public boolean isCompleted() {

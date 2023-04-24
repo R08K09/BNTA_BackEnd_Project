@@ -7,13 +7,13 @@ public class ListDTO {
 
     private Long id;
     private String listName;
-    private List<Item> items;
+    private List<Long> itemIds;
     private boolean isCompleted;
 
 //CONSTRUCTOR
-    public ListDTO(String listName, Item items){
+    public ListDTO(String listName, List itemIds){
         this.listName = listName;
-        this.items = new ArrayList<Item>();
+        this.itemIds = itemIds;
         this.isCompleted = false;
     }
 
@@ -41,12 +41,12 @@ public class ListDTO {
         this.listName = listName;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<Long> getItemIds() {
+        return itemIds;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setItemIds(List<Long> itemIds) {
+        this.itemIds = itemIds;
     }
 
     public boolean isCompleted() {
@@ -57,14 +57,5 @@ public class ListDTO {
         isCompleted = completed;
     }
 
-//METHODS
-
-    public void addItem(Item item){
-        this.items.add(item);
-    }
-
-    public void removeItem(Item item){
-        this.items.remove(item);
-    }
 
 }
