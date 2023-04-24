@@ -1,5 +1,6 @@
 package com.example.backend_code.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class ToDoList {
     @ManyToMany
     @JoinTable(
             name = "users_lists",
-            joinColumns = @JoinColumn(name = "todolist_id",
+            joinColumns = @JoinColumn(name = "todolist_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     @JsonIgnoreProperties({"users"})
