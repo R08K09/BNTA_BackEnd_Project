@@ -18,7 +18,7 @@ public class Item {
     @Column
     private String dueDate;
 
-//    @JsonIgnoreProperties({"items"})
+    @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "todolist_id")
     private ToDoList toDoList;
