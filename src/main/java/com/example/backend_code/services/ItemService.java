@@ -50,7 +50,7 @@ public class ItemService {
 //        itemRepository.findById(id).get();
 //
 //        ToDoList toDoList
-        ToDoList toDoList = toDoListService.findList(id);
+        ToDoList toDoList = toDoListService.findListById(id);
         item.setToDoList(toDoList);
         itemRepository.save(item);
     }
