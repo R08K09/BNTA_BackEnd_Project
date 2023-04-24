@@ -23,8 +23,7 @@ public class User {
     @Column
     private List<ToDoList> masterList;
 
-    public User(String name, Long id) {
-        this.id = id;
+    public User(String name) {
         this.name = name;
         this.masterList = new ArrayList<>();
     }
