@@ -40,12 +40,15 @@ public class DataLoader implements ApplicationRunner {
         toDoListRepository.save(toDoListTwo);
 
 //        make items
-        Item itemOne = new Item("Vacuum", "20/03/2022", toDoListOne);
+        Item itemOne = new Item("Vacuum", "20/03/2022");
         itemRepository.save(itemOne);
-        Item itemTwo = new Item("Fold clothes", "01/01/2023", toDoListOne);
+        Item itemTwo = new Item("Fold clothes", "01/01/2023");
         itemRepository.save(itemTwo);
-        Item itemThree = new Item("Milk", "12/05/2020", toDoListTwo);
+        Item itemThree = new Item("Milk", "12/05/2020");
         itemRepository.save(itemThree);
+
+        itemOne.setToDoList(toDoListOne);
+        itemRepository.save(itemOne);
 
 //        add items to their lists
         toDoListOne.addItem(itemOne);

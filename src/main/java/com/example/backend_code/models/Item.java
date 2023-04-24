@@ -1,4 +1,5 @@
 package com.example.backend_code.models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +18,14 @@ public class Item {
     @Column
     private String dueDate;
 
+//    @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "todolist_id")
     private ToDoList toDoList;
 
     @Column
     private boolean isCompleted;
-    public Item(String taskName, String dueDate, ToDoList toDoList){
+    public Item(String taskName, String dueDate){
         this.taskName = taskName;
         this.dueDate = dueDate;
         this.toDoList = toDoList;
