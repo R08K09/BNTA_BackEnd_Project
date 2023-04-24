@@ -40,7 +40,7 @@ public class UserController {
         userService.deleteUser(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-    
+
 
 
 
