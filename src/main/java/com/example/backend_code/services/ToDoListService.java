@@ -8,6 +8,8 @@ import com.example.backend_code.repositories.ToDoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ToDoListService {
 
@@ -36,8 +38,12 @@ public class ToDoListService {
         toDoListRepository.save(toDoList);
     }
 
-    public void addItemToList(ItemDTO itemDTO, Long id){
-        Item item = new Item(itemDTO.getTaskName(), itemDTO.getDueDate());
-        itemRepository.findById(id).get();
+    public ToDoList findListById(Long id){
+        return toDoListRepository.findById(id).get();
     }
+
+    public List<ToDoList> findAllLists(){
+        return toDoListRepository.findAll();
+    }
+
 }

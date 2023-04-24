@@ -19,14 +19,14 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "todolist_id")
-    private List<ToDoList> toDoLists;
+    private ToDoList toDoList;
 
     @Column
     private boolean isCompleted;
-    public Item(String taskName, String dueDate){
+    public Item(String taskName, String dueDate, ToDoList toDoList){
         this.taskName = taskName;
         this.dueDate = dueDate;
-        this.toDoLists = new ArrayList<>();
+        this.toDoList = toDoList;
         this.isCompleted = false;
     }
 
@@ -58,12 +58,12 @@ public class Item {
         this.dueDate = dueDate;
     }
 
-    public List<ToDoList> getToDoLists() {
-        return toDoLists;
+    public ToDoList getToDoList() {
+        return toDoList;
     }
 
-    public void setToDoLists(List<ToDoList> toDoLists) {
-        this.toDoLists = toDoLists;
+    public void setToDoList(ToDoList toDoList) {
+        this.toDoList = toDoList;
     }
 
     public boolean isCompleted() {
