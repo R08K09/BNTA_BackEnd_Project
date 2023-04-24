@@ -21,17 +21,18 @@ public class ToDoList {
     @Column
     private boolean isCompleted;
 
+
+    @JsonIgnoreProperties({"toDoList"})
     @ManyToMany
     @JoinTable(
             name = "users_lists",
             joinColumns = @JoinColumn(name = "todolist_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    @JsonIgnoreProperties({"users"})
     private List<User> users;
 
-    @OneToMany(mappedBy = "ToDoList")
-    @JsonIgnoreProperties({"ToDoLists"})
+    @JsonIgnoreProperties({"toDoList"})
+    @OneToMany(mappedBy = "toDoList")
     private List<Item> items;
 
     public ToDoList(String listName, boolean completed){
@@ -77,11 +78,11 @@ public class ToDoList {
         this.users = users;
     }
 
-    public List<Item> getListItems() {
+    public List<Item> getItems() {
         return this.items;
     }
 
-    public void setListItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
