@@ -24,7 +24,6 @@ public class User {
     private List<ToDoList> masterList;
 
     public User(String name) {
-        this.id = id;
         this.name = name;
         this.masterList = new ArrayList<>();
     }
