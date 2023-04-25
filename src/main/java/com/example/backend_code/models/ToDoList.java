@@ -22,7 +22,7 @@ public class ToDoList {
     private boolean isCompleted;
 
 
-    @JsonIgnoreProperties({"toDoList"})
+    @JsonIgnoreProperties({"masterList"})
     @ManyToMany
     @JoinTable(
             name = "users_lists",
