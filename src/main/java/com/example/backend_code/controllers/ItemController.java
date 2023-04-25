@@ -65,19 +65,5 @@ public class ItemController {
         return new ResponseEntity<>(completedItem, HttpStatus.OK);
     }
 
-//    filtering request based on property(priority)
-//    this will be a get request
-//    @GetMapping(value = "/priority")
-//    public ResponseEntity<List<Item>> getItemByPriority(@RequestParam Priority priority,
-//                                                        @PathVariable Long id){
-////        List<Item> items = itemService.getItemByPriority(priority);
-//        return new ResponseEntity<>(items, HttpStatus.OK);
-//    }
-
-
-
-
-
-
 
 }

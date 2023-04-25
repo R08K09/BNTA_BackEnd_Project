@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "ToDoLists")
 public class ToDoList {
 
+//    PROPERTIES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -20,7 +21,6 @@ public class ToDoList {
 
     @Column
     private boolean isCompleted;
-
 
     @JsonIgnoreProperties({"masterList"})
     @ManyToMany
@@ -35,6 +35,7 @@ public class ToDoList {
     @OneToMany(mappedBy = "toDoList")
     private List<Item> items;
 
+//    CONSTRUCTOR
     public ToDoList(String listName){
         this.listName = listName;
         this.isCompleted = false;
@@ -42,10 +43,12 @@ public class ToDoList {
         this.items = new ArrayList<>();
     }
 
+//    DEFAULT CONSTRUCTOR
     public ToDoList(){
 
     }
 
+//    GETTERS & SETTER
     public Long getId() {
         return id;
     }
@@ -86,6 +89,7 @@ public class ToDoList {
         this.items = items;
     }
 
+//    METHODS
     public void addItem(Item item){
         this.items.add(item);
     }

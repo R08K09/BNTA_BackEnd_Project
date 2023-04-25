@@ -75,6 +75,7 @@ public class ItemService {
         }
         return filteredItems;
     }
+
     public Item setItemComplete(Long id){
         Item item = itemRepository.findById(id).get();
         item.setCompleted(true);
