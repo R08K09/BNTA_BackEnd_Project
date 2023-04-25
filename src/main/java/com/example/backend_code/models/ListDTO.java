@@ -8,12 +8,14 @@ public class ListDTO {
     private Long id;
     private String listName;
     private List<Long> itemIds;
+    private List<Long> userIds;
     private boolean isCompleted;
 
 //CONSTRUCTOR
-    public ListDTO(String listName, List itemIds){
+    public ListDTO(String listName, List itemIds, List userIds){
         this.listName = listName;
         this.itemIds = itemIds;
+        this.userIds = userIds;
         this.isCompleted = false;
     }
 
@@ -47,6 +49,14 @@ public class ListDTO {
 
     public void setItemIds(List<Long> itemIds) {
         this.itemIds = itemIds;
+    }
+
+    public List<Long> getUserIds() {
+        return userIds;
+    }
+
+    public void setUserIds(List<Long> userIds) {
+        this.userIds = userIds;
     }
 
     public boolean isCompleted() {
