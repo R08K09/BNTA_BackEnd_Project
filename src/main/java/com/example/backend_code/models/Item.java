@@ -1,8 +1,11 @@
 package com.example.backend_code.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 @Entity
 @Table(name = "items")
@@ -16,7 +19,8 @@ public class Item {
     private String taskName;
 
     @Column
-    private String dueDate;
+    private LocalDate dueDate;
+
 
     @JsonIgnoreProperties({"items"})
     @ManyToOne
@@ -27,7 +31,7 @@ public class Item {
     private boolean isCompleted;
     public Item(String taskName, String dueDate){
         this.taskName = taskName;
-        this.dueDate = dueDate;
+        this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.toDoList = toDoList;
         this.isCompleted = false;
     }
@@ -52,11 +56,12 @@ public class Item {
         this.taskName = taskName;
     }
 
-    public String getDueDate() {
+
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 

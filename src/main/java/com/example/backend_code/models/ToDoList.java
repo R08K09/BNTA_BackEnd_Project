@@ -35,9 +35,9 @@ public class ToDoList {
     @OneToMany(mappedBy = "toDoList")
     private List<Item> items;
 
-    public ToDoList(String listName, boolean completed){
+    public ToDoList(String listName){
         this.listName = listName;
-        this.isCompleted = completed;
+        this.isCompleted = false;
         this.users = new ArrayList<>();
         this.items = new ArrayList<>();
     }
