@@ -32,6 +32,8 @@ public class DataLoader implements ApplicationRunner {
 //        make user
         User user = new User("John");
         userRepository.save(user);
+        User user2 = new User("Max");
+        userRepository.save(user2);
 
 //        make a to-do list
         ToDoList toDoListOne = new ToDoList("House chores", false);
@@ -60,7 +62,12 @@ public class DataLoader implements ApplicationRunner {
         toDoListTwo.addItem(itemThree);
         toDoListRepository.save(toDoListTwo);
 
+//        add users to lists
+        toDoListOne.addUser(user);
+        toDoListRepository.save(toDoListOne);
 
+        toDoListTwo.addUser(user2);
+        toDoListRepository.save(toDoListTwo);
 
 
 
