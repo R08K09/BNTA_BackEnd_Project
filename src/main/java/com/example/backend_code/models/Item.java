@@ -25,20 +25,20 @@ public class Item {
     @Column
     private Priority priority;
 
+    @Column
+    private boolean isCompleted;
+
     @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "todolist_id")
     private ToDoList toDoList;
 
-    @Column
-    private boolean isCompleted;
 
 //    CONSTRUCTOR
     public Item(String taskName, String dueDate, Priority priority){
         this.taskName = taskName;
         this.priority = priority;
         this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        this.toDoList = toDoList;
         this.isCompleted = false;
     }
 

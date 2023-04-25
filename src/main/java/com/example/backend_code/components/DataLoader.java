@@ -54,23 +54,31 @@ public class DataLoader implements ApplicationRunner {
         Item itemThree = new Item("Milk", "12/05/2020", Priority.MEDIUM);
         itemRepository.save(itemThree);
 
-//        add items to their lists
-        toDoListOne.addItem(itemOne);
-        toDoListRepository.save(toDoListOne);
+////        add items to their lists
+//        toDoListOne.addItem(itemOne);
+//        toDoListRepository.save(toDoListOne);
+//
+//        toDoListOne.addItem(itemTwo);
+//        toDoListRepository.save(toDoListOne);
+//
+//        toDoListTwo.addItem(itemThree);
+//        toDoListRepository.save(toDoListTwo);
 
-        toDoListOne.addItem(itemTwo);
-        toDoListRepository.save(toDoListOne);
+        itemOne.setToDoList(toDoListOne);
+        itemRepository.save(itemOne);
+        itemTwo.setToDoList(toDoListTwo);
+        itemRepository.save(itemTwo);
+        itemThree.setToDoList(toDoListOne);
+        itemRepository.save(itemThree);
 
-        toDoListTwo.addItem(itemThree);
-        toDoListRepository.save(toDoListTwo);
 
 
 //        add users to lists
-//        toDoListOne.addUser(user);
-//        toDoListRepository.save(toDoListOne);
-//
-//        toDoListTwo.addUser(user2);
-//        toDoListRepository.save(toDoListTwo);
+        toDoListOne.addUser(user);
+        toDoListRepository.save(toDoListOne);
+
+        toDoListTwo.addUser(user2);
+        toDoListRepository.save(toDoListTwo);
 
 
     }

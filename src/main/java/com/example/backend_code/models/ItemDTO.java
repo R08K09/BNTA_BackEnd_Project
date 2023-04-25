@@ -13,11 +13,14 @@ public class ItemDTO {
 
     private Long listId;
 
+    private Priority priority;
+
     private boolean isCompleted;
 
-    public ItemDTO(String taskName, String dueDate, Long listId){
+    public ItemDTO(String taskName, String dueDate, Priority priority, Long listId){
         this.taskName = taskName;
         this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.priority = priority;
         this.listId = listId;
         this.isCompleted = false;
     }
@@ -55,5 +58,13 @@ public class ItemDTO {
     }
     public void setListId(Long listId) {
         this.listId = listId;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 }

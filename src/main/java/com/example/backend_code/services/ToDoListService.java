@@ -82,12 +82,12 @@ public class ToDoListService {
         return toDoListRepository.findAll();
     }
 
-    public ToDoList setListComplete(Long id){
+    public ToDoList setListComplete(boolean complete, Long id){
         ToDoList toDoList = toDoListRepository.findById(id).get();
-        toDoList.setIsCompleted(true);
+        toDoList.setIsCompleted(complete);
         toDoListRepository.save(toDoList);
         for (Item item : toDoList.getItems()){
-            item.setCompleted(true);
+            item.setCompleted(complete);
             itemRepository.save(item);
         }
         return toDoList;

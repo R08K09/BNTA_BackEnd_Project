@@ -58,6 +58,7 @@ public class ItemService {
         Item updatedItem = itemRepository.findById(id).get();
         updatedItem.setTaskName(itemDTO.getTaskName());
         updatedItem.setDueDate(itemDTO.getDueDate());
+        updatedItem.setPriority(itemDTO.getPriority());
         ToDoList toDoList = toDoListService.findListById(itemDTO.getListId());
         updatedItem.setToDoList(toDoList);
         itemRepository.save(updatedItem);
@@ -76,9 +77,9 @@ public class ItemService {
         return filteredItems;
     }
 
-    public Item setItemComplete(Long id){
+    public Item setItemComplete(boolean complete, Long id){
         Item item = itemRepository.findById(id).get();
-        item.setCompleted(true);
+        item.setCompleted(complete);
         itemRepository.save(item);
         return item;
 
