@@ -38,6 +38,9 @@ public class DataLoader implements ApplicationRunner {
         User user2 = new User("Max");
         userRepository.save(user2);
 
+        User user3 = new User("Charles");
+        userRepository.save(user3);
+
 //        make to-do lists
         ToDoList toDoListOne = new ToDoList("House chores");
         toDoListRepository.save(toDoListOne);
@@ -58,18 +61,22 @@ public class DataLoader implements ApplicationRunner {
 //        set list to items
         itemOne.setToDoList(toDoListOne);
         itemRepository.save(itemOne);
-        itemTwo.setToDoList(toDoListTwo);
+
+        itemTwo.setToDoList(toDoListOne);
         itemRepository.save(itemTwo);
-        itemThree.setToDoList(toDoListOne);
+
+        itemThree.setToDoList(toDoListTwo);
         itemRepository.save(itemThree);
 
 //        add users to lists
         toDoListOne.addUser(user);
-        toDoListRepository.save(toDoListOne);
 
         toDoListTwo.addUser(user2);
-        toDoListRepository.save(toDoListTwo);
 
+        toDoListOne.addUser(user3);
+
+        toDoListRepository.save(toDoListTwo);
+        toDoListRepository.save(toDoListOne);
 
     }
 }
