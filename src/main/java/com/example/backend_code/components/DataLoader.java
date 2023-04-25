@@ -37,9 +37,9 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user2);
 
 //        make a to-do list
-        ToDoList toDoListOne = new ToDoList("House chores", false);
+        ToDoList toDoListOne = new ToDoList("House chores");
         toDoListRepository.save(toDoListOne);
-        ToDoList toDoListTwo = new ToDoList("Shopping List", false);
+        ToDoList toDoListTwo = new ToDoList("Shopping List");
         toDoListRepository.save(toDoListTwo);
 
 //        make items

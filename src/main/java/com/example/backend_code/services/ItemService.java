@@ -48,10 +48,6 @@ public class ItemService {
     }
 
     public void addItemToList(Item item, Long id){
-//        Item item = new Item(itemDTO.getTaskName(), itemDTO.getDueDate());
-//        itemRepository.findById(id).get();
-//
-//        ToDoList toDoList
         ToDoList toDoList = toDoListService.findListById(id);
         item.setToDoList(toDoList);
         itemRepository.save(item);
@@ -70,6 +66,7 @@ public class ItemService {
 
 
 
+
     public List<Item> getItemByPriority(Priority priority) {
         List<Item> allItems = itemRepository.findAll();
         List<Item> filteredItems = new ArrayList<>();
@@ -79,6 +76,13 @@ public class ItemService {
             }
         }
         return filteredItems;
+
+    public Item setItemComplete(Long id){
+        Item item = itemRepository.findById(id).get();
+        item.setCompleted(true);
+        itemRepository.save(item);
+        return item;
+
     }
 
 }

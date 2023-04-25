@@ -1,5 +1,7 @@
 package com.example.backend_code.models;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class ItemDTO {
 
     private String taskName;
 
-    private String dueDate;
+    private LocalDate dueDate;
 
     private Long listId;
 
@@ -15,7 +17,7 @@ public class ItemDTO {
 
     public ItemDTO(String taskName, String dueDate, Long listId){
         this.taskName = taskName;
-        this.dueDate = dueDate;
+        this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.listId = listId;
         this.isCompleted = false;
     }
@@ -32,11 +34,11 @@ public class ItemDTO {
         this.taskName = taskName;
     }
 
-    public String getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
