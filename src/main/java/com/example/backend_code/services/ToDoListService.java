@@ -24,7 +24,7 @@ public class ToDoListService {
 
     public void createList(ListDTO listDTO){
 //        toDoListRepository.save(toDoList);
-        ToDoList toDoList1 = new ToDoList(listDTO.getListName(), listDTO.isCompleted());
+        ToDoList toDoList1 = new ToDoList(listDTO.getListName());
 
         for (Long userId : listDTO.getUserIds()){
             User user = userRepository.findById(userId).get();
