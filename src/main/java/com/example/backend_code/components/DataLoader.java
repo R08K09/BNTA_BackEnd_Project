@@ -1,6 +1,7 @@
 package com.example.backend_code.components;
 
 import com.example.backend_code.models.Item;
+import com.example.backend_code.models.Priority;
 import com.example.backend_code.models.ToDoList;
 import com.example.backend_code.models.User;
 import com.example.backend_code.repositories.ItemRepository;
@@ -40,11 +41,11 @@ public class DataLoader implements ApplicationRunner {
         toDoListRepository.save(toDoListTwo);
 
 //        make items
-        Item itemOne = new Item("Vacuum", "20/03/2022");
+        Item itemOne = new Item("Vacuum", "20/03/2022", Priority.HIGH);
         itemRepository.save(itemOne);
-        Item itemTwo = new Item("Fold clothes", "01/01/2023");
+        Item itemTwo = new Item("Fold clothes", "01/01/2023", Priority.LOW);
         itemRepository.save(itemTwo);
-        Item itemThree = new Item("Milk", "12/05/2020");
+        Item itemThree = new Item("Milk", "12/05/2020", Priority.MEDIUM);
         itemRepository.save(itemThree);
 
         itemOne.setToDoList(toDoListOne);
