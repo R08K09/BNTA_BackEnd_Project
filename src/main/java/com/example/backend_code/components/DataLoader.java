@@ -60,7 +60,10 @@ public class DataLoader implements ApplicationRunner {
         toDoListTwo.addItem(itemThree);
         toDoListRepository.save(toDoListTwo);
 
-
+        user.addList(toDoListOne);
+        userRepository.save(user);
+        toDoListOne.addUser(user);
+        toDoListRepository.save(toDoListOne);
 
 
 
