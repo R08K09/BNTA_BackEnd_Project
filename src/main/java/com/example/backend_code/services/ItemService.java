@@ -2,11 +2,13 @@ package com.example.backend_code.services;
 
 import com.example.backend_code.models.Item;
 import com.example.backend_code.models.ItemDTO;
+import com.example.backend_code.models.Priority;
 import com.example.backend_code.models.ToDoList;
 import com.example.backend_code.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -55,6 +57,7 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+
     public Item updateItem(ItemDTO itemDTO, Long id) {
         Item updatedItem = itemRepository.findById(id).get();
         updatedItem.setTaskName(itemDTO.getTaskName());
@@ -63,6 +66,19 @@ public class ItemService {
         updatedItem.setToDoList(toDoList);
         itemRepository.save(updatedItem);
         return updatedItem;
+    }
+
+
+
+    public List<Item> getItemByPriority(Priority priority) {
+        List<Item> allItems = itemRepository.findAll();
+        List<Item> filteredItems = new ArrayList<>();
+        for(Item items : allItems){
+            if(items.getPriority() == priority){
+                filteredItems.add(items);
+            }
+        }
+        return filteredItems;
     }
 
 }

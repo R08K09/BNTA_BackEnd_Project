@@ -18,6 +18,9 @@ public class Item {
     @Column
     private String dueDate;
 
+    @Column
+    private Priority priority;
+
     @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "todolist_id")
@@ -25,9 +28,10 @@ public class Item {
 
     @Column
     private boolean isCompleted;
-    public Item(String taskName, String dueDate){
+    public Item(String taskName, String dueDate, Priority priority){
         this.taskName = taskName;
         this.dueDate = dueDate;
+        this.priority = priority;
         this.toDoList = toDoList;
         this.isCompleted = false;
     }
@@ -74,5 +78,13 @@ public class Item {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 }
