@@ -52,15 +52,6 @@ public class ListController {
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
-    @PutMapping (value = "/{ListId}/addUser")
-//    public ResponseEntity<ToDoList> addUser(@RequestBody UserDTO userDTO, @PathVariable Long userId) {
-//        ToDoList userAdded = toDoListService.addUserToToDoList(userDTO, userId);
-//        return new ResponseEntity<>(userAdded, HttpStatus.OK);
 
-    public ResponseEntity<ToDoList> addUser(@RequestBody User user, @PathVariable Long ListId) {
-        ToDoList toDoList = toDoListService.findListById(ListId);
-        ToDoList updatedToDoList = toDoListService.addUserToToDoList(toDoList, user);
-        return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
 
-    }
 }

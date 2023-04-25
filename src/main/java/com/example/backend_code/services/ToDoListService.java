@@ -81,28 +81,5 @@ public class ToDoListService {
         return toDoListRepository.findAll();
     }
 
-//    public ToDoList addUserToToDoList(UserDTO userDTO, Long id) {
-////        Get the list by Id
-//        ToDoList toDoList = toDoListRepository.findById(id).get();
-////        Set users for toDoList as an arrayList
-//        toDoList.setUsers(new ArrayList<>());
-////        For each used Id in listDTO
-//        for (Long userId : userDTO.getListIds()) {
-////            Get the user by ID
-//            User user = userRepository.findById(userId).get();
-////            Add the user to ToDoList
-//            toDoList.addUser(user);
-//        }
-////        Save it
-//        toDoListRepository.save(toDoList);
-//        return toDoList;
-//    }
-
-    public ToDoList addUserToToDoList(ToDoList toDoList, User user) {
-        List<User> users = toDoList.getUsers();
-        users.add(user);
-        toDoList.setUsers(users);
-        return toDoListRepository.save(toDoList);
-    }
 
 }

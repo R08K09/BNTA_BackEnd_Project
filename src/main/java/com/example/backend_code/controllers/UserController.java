@@ -2,6 +2,7 @@ package com.example.backend_code.controllers;
 
 
 import com.example.backend_code.models.User;
+import com.example.backend_code.models.UserDTO;
 import com.example.backend_code.services.UserService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,10 @@ public class UserController {
 
     // UPDATE
     @PutMapping(value = "/{id}")
-    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id){
-        userService.updateUser(user, id);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<User> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id){
+        User updatedUser = userService.updateUser(userDTO, id);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
+
 
 }
