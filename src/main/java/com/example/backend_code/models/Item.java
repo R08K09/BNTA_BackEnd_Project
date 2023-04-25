@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 @Table(name = "items")
 public class Item {
 
+//    PROPERTIES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,7 +21,6 @@ public class Item {
 
     @Column
     private LocalDate dueDate;
-
 
     @Column
     private Priority priority;
@@ -32,22 +32,22 @@ public class Item {
 
     @Column
     private boolean isCompleted;
+
+//    CONSTRUCTOR
     public Item(String taskName, String dueDate, Priority priority){
         this.taskName = taskName;
-
-        this.dueDate = dueDate;
         this.priority = priority;
-
         this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
         this.toDoList = toDoList;
         this.isCompleted = false;
     }
 
+//    DEFAULT CONSTRUCTOR
     public Item(){
 
     }
 
+//    GETTERS & SETTERS
     public long getId() {
         return id;
     }
@@ -63,7 +63,6 @@ public class Item {
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
-
 
     public LocalDate getDueDate() {
         return dueDate;

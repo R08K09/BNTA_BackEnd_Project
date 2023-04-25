@@ -5,13 +5,14 @@ import java.util.List;
 
 public class ListDTO {
 
+//    PROPERTIES
     private Long id;
     private String listName;
     private List<Long> itemIds;
     private List<Long> userIds;
     private boolean isCompleted;
 
-//CONSTRUCTOR
+//    CONSTRUCTOR
     public ListDTO(String listName, List itemIds, List userIds){
         this.listName = listName;
         this.itemIds = itemIds;
@@ -19,14 +20,12 @@ public class ListDTO {
         this.isCompleted = false;
     }
 
-
-//DEFAULT CONSTRUCTOR
+//    DEFAULT CONSTRUCTOR
     public ListDTO(){
 
     }
 
-
-//SETTERS AND GETTERS
+//    SETTERS AND GETTERS
     public Long getId() {
         return id;
     }

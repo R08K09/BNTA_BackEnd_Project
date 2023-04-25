@@ -33,25 +33,26 @@ public class DataLoader implements ApplicationRunner {
 //        make user
         User user = new User("John");
         userRepository.save(user);
+
         User user2 = new User("Max");
         userRepository.save(user2);
 
-//        make a to-do list
+//        make to-do lists
         ToDoList toDoListOne = new ToDoList("House chores");
         toDoListRepository.save(toDoListOne);
+
         ToDoList toDoListTwo = new ToDoList("Shopping List");
         toDoListRepository.save(toDoListTwo);
 
 //        make items
         Item itemOne = new Item("Vacuum", "20/03/2022", Priority.HIGH);
         itemRepository.save(itemOne);
+
         Item itemTwo = new Item("Fold clothes", "01/01/2023", Priority.LOW);
         itemRepository.save(itemTwo);
+
         Item itemThree = new Item("Milk", "12/05/2020", Priority.MEDIUM);
         itemRepository.save(itemThree);
-
-        itemOne.setToDoList(toDoListOne);
-        itemRepository.save(itemOne);
 
 //        add items to their lists
         toDoListOne.addItem(itemOne);
@@ -70,7 +71,6 @@ public class DataLoader implements ApplicationRunner {
 
         toDoListTwo.addUser(user2);
         toDoListRepository.save(toDoListTwo);
-
 
 
     }

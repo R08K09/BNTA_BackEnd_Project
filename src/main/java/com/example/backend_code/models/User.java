@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
+//    PROPERTIES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -22,20 +23,18 @@ public class User {
     @JsonIgnoreProperties({"users"})
     private List<ToDoList> masterList;
 
+//    CONSTRUCTOR
     public User(String name) {
         this.name = name;
         this.masterList = new ArrayList<>();
     }
 
+//    DEFAULT CONSTRUCTOR
     public User() {
 
     }
 
-
-
-//    Getters and Setters
-
-
+//    GETTERS & SETTERS
     public Long getId() {
         return id;
     }
@@ -60,6 +59,7 @@ public class User {
         this.masterList = masterList;
     }
 
+//    METHODS
     public void addList(ToDoList toDoList){
         this.masterList.add(toDoList);
     }
