@@ -1,13 +1,13 @@
 package com.example.backend_code.services;
 
-import com.example.backend_code.models.Item;
-import com.example.backend_code.models.ItemDTO;
-import com.example.backend_code.models.ToDoList;
+import com.example.backend_code.models.*;
 import com.example.backend_code.repositories.ItemRepository;
 import com.example.backend_code.repositories.ToDoListRepository;
+import com.example.backend_code.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,8 +19,39 @@ public class ToDoListService {
     @Autowired
     ItemRepository itemRepository;
 
-    public void createList(ToDoList toDoList){
-        toDoListRepository.save(toDoList);
+    @Autowired
+    UserRepository userRepository;
+
+    public void createList(ListDTO listDTO){
+//        toDoListRepository.save(toDoList);
+        ToDoList toDoList1 = new ToDoList(listDTO.getListName(), listDTO.isCompleted());
+
+        for (Long userId : listDTO.getUserIds()){
+            User user = userRepository.findById(userId).get();
+            toDoList1.addUser(user);
+        }
+        for (Long itemId : listDTO.getItemIds()){
+            Item item = itemRepository.findById(itemId).get();
+            toDoList1.addItem(item);
+        }
+        toDoListRepository.save(toDoList1);
+    }
+
+    public ToDoList updateToDoList(ListDTO listDTO, Long id){
+        ToDoList listToUpdate = toDoListRepository.findById(id).get();
+        listToUpdate.setListName(listDTO.getListName());
+        listToUpdate.setUsers(new ArrayList<User>());
+        listToUpdate.setItems(new ArrayList<Item>());
+        for (Long userId : listDTO.getUserIds()){
+            User user = userRepository.findById(userId).get();
+            listToUpdate.addUser(user);
+        }
+        for (Long itemId : listDTO.getItemIds()){
+            Item item = itemRepository.findById(itemId).get();
+            listToUpdate.addItem(item);
+        }
+        toDoListRepository.save(listToUpdate);
+        return listToUpdate;
     }
 
     public void deleteList(Long id){
