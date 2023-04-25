@@ -30,6 +30,11 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
     }
 
+    @GetMapping (value = "/{name}")
+    public ResponseEntity<User> getUserById(@PathVariable String name) {
+        return new ResponseEntity<>(userService.findByUserByName(name), HttpStatus.OK);
+    }
+
     // CREATE
     @PostMapping
     public ResponseEntity<User> postUser(@RequestBody User user) {
