@@ -18,8 +18,8 @@ public class User {
     @Column
     private String name;
 
-    @JsonIgnoreProperties({"users"})
     @ManyToMany(mappedBy = "users")
+    @JsonIgnoreProperties({"users"})
     private List<ToDoList> masterList;
 
     public User(String name) {
