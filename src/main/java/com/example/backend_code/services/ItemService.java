@@ -55,4 +55,14 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    public Item updateItem(ItemDTO itemDTO, Long id) {
+        Item updatedItem = itemRepository.findById(id).get();
+        updatedItem.setTaskName(itemDTO.getTaskName());
+        updatedItem.setDueDate(itemDTO.getDueDate());
+        ToDoList toDoList = toDoListService.findListById(itemDTO.getListId());
+        updatedItem.setToDoList(toDoList);
+        itemRepository.save(updatedItem);
+        return updatedItem;
+    }
+
 }
