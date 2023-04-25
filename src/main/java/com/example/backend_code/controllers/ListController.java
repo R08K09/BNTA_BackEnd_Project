@@ -1,6 +1,8 @@
 package com.example.backend_code.controllers;
 import com.example.backend_code.models.ListDTO;
 import com.example.backend_code.models.ToDoList;
+import com.example.backend_code.models.User;
+import com.example.backend_code.models.UserDTO;
 import com.example.backend_code.services.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,10 +52,15 @@ public class ListController {
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<ToDoList> addUser(@RequestBody ListDTO listDTO, @PathVariable Long id) {
-        ToDoList userAdded = toDoListService.addUserToToDoList(listDTO, id);
-        return new ResponseEntity<>(userAdded, HttpStatus.OK);
+    @PutMapping (value = "/{ListId}/addUser")
+//    public ResponseEntity<ToDoList> addUser(@RequestBody UserDTO userDTO, @PathVariable Long userId) {
+//        ToDoList userAdded = toDoListService.addUserToToDoList(userDTO, userId);
+//        return new ResponseEntity<>(userAdded, HttpStatus.OK);
+
+    public ResponseEntity<ToDoList> addUser(@RequestBody User user, @PathVariable Long ListId) {
+        ToDoList toDoList = toDoListService.findListById(ListId);
+        ToDoList updatedToDoList = toDoListService.addUserToToDoList(toDoList, user);
+        return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
 
     }
 }
