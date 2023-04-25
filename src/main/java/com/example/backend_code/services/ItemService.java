@@ -65,8 +65,6 @@ public class ItemService {
     }
 
 
-
-
     public List<Item> getItemByPriority(Priority priority) {
         List<Item> allItems = itemRepository.findAll();
         List<Item> filteredItems = new ArrayList<>();
