@@ -24,6 +24,10 @@ public class ToDoListService {
     }
 
     public void deleteList(Long id){
+        ToDoList toDoList = toDoListRepository.findById(id).get();
+        for(Item item : toDoList.getItems()){
+            itemRepository.delete(item);
+        }
         toDoListRepository.deleteById(id);
     }
 
