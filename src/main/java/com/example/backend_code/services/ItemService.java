@@ -65,18 +65,16 @@ public class ItemService {
     }
 
 
-
-
     public List<Item> getItemByPriority(Priority priority) {
         List<Item> allItems = itemRepository.findAll();
         List<Item> filteredItems = new ArrayList<>();
-        for(Item items : allItems){
-            if(items.getPriority() == priority){
+        for (Item items : allItems) {
+            if (items.getPriority() == priority) {
                 filteredItems.add(items);
             }
         }
         return filteredItems;
-
+    }
     public Item setItemComplete(Long id){
         Item item = itemRepository.findById(id).get();
         item.setCompleted(true);
