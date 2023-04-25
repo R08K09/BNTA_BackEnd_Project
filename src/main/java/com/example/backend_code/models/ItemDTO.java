@@ -9,14 +9,14 @@ public class ItemDTO {
 
     private String dueDate;
 
-    private List<Long> listIds;
+    private Long listId;
 
     private boolean isCompleted;
 
-    public ItemDTO(String taskName, String dueDate, List listIds){
+    public ItemDTO(String taskName, String dueDate, Long listId){
         this.taskName = taskName;
         this.dueDate = dueDate;
-        this.listIds = listIds;
+        this.listId = listId;
         this.isCompleted = false;
     }
 
@@ -40,19 +40,18 @@ public class ItemDTO {
         this.dueDate = dueDate;
     }
 
-    public List<Long> getListIds() {
-        return listIds;
-    }
-
-    public void setListIds(List<Long> listIds) {
-        this.listIds = listIds;
-    }
-
     public boolean isCompleted() {
         return isCompleted;
     }
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public Long getListId() {
+        return listId;
+    }
+    public void setListId(Long listId) {
+        this.listId = listId;
     }
 }
