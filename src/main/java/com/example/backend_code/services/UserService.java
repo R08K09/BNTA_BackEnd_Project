@@ -20,15 +20,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> findAllUsers(){
+    public List<User> getAllUsers(){
         return userRepository.findAll();
     }
 
-    public User findUserById(Long id){
+    public User getUserById(Long id){
         return userRepository.findById(id).get();
     }
 
-    public User findByUserByName(String name) {
+    public User getByUserByName(String name) {
         return userRepository.findByName(name);
     }
 

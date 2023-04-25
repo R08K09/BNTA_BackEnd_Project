@@ -48,7 +48,7 @@ public class ToDoList {
 
     }
 
-//    GETTERS & SETTER
+//    GETTERS & SETTERS
     public Long getId() {
         return id;
     }

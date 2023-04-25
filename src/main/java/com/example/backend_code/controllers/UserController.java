@@ -22,18 +22,18 @@ public class UserController {
     // INDEX
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
-        return new ResponseEntity<>(userService.findAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     // SHOW
     @GetMapping (value = "/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @GetMapping (value = "/{name}")
     public ResponseEntity<User> getUserByName(@PathVariable String name) {
-        return new ResponseEntity<>(userService.findByUserByName(name), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getByUserByName(name), HttpStatus.OK);
     }
 
     // CREATE
@@ -43,18 +43,18 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    // DELETE
-    @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Long> deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
-    }
-
     // UPDATE
     @PutMapping(value = "/{id}")
     public ResponseEntity<User> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id){
         User updatedUser = userService.updateUser(userDTO, id);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
+    // DELETE
+    @DeleteMapping (value = "/{id}")
+    public ResponseEntity<Long> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 

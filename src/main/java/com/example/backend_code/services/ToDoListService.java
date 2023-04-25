@@ -23,8 +23,15 @@ public class ToDoListService {
     @Autowired
     UserRepository userRepository;
 
+    public List<ToDoList> getAllLists(){
+        return toDoListRepository.findAll();
+    }
+
+    public ToDoList getListById(Long id){
+        return toDoListRepository.findById(id).get();
+    }
+
     public void createList(ListDTO listDTO){
-//        toDoListRepository.save(toDoList);
         ToDoList toDoList1 = new ToDoList(listDTO.getListName());
 
         for (Long userId : listDTO.getUserIds()){
@@ -63,25 +70,6 @@ public class ToDoListService {
         toDoListRepository.deleteById(id);
     }
 
-    public void listComplete(Long id){
-        // find item based on id
-        ToDoList toDoList = toDoListRepository.findById(id).get();
-
-        // replace isComplete
-        toDoList.setIsCompleted(true);
-
-        // save item
-        toDoListRepository.save(toDoList);
-    }
-
-    public ToDoList findListById(Long id){
-        return toDoListRepository.findById(id).get();
-    }
-
-    public List<ToDoList> findAllLists(){
-        return toDoListRepository.findAll();
-    }
-
     public ToDoList setListComplete(boolean complete, Long id){
         ToDoList toDoList = toDoListRepository.findById(id).get();
         toDoList.setIsCompleted(complete);
@@ -92,6 +80,5 @@ public class ToDoListService {
         }
         return toDoList;
     }
-
 
 }
