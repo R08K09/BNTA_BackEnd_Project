@@ -59,4 +59,8 @@ public class User {
     public void setMasterList(List<ToDoList> masterList) {
         this.masterList = masterList;
     }
+
+    public void addList(ToDoList toDoList){
+        this.masterList.add(toDoList);
+    }
 }
