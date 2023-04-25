@@ -20,7 +20,10 @@ public class ItemController {
     ItemService itemService;
 
     @GetMapping
-    public ResponseEntity<List<Item>> getAllItems() {
+    public ResponseEntity<List<Item>> getAllItems(@RequestParam(name="priority") Priority priority) {
+        if(priority != null){
+            return new ResponseEntity<>(itemService.getItemByPriority(priority), HttpStatus.OK);
+        }
         return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
     }
 
@@ -41,13 +44,16 @@ public class ItemController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+
+
 //    filtering request based on property(priority)
 //    this will be a get request
-    @GetMapping
-    public ResponseEntity<List<Item>> getItemByPriority(@RequestParam Priority priority){
-        List<Item> items = itemService.getItemByPriority(priority);
-        return new ResponseEntity<>(items, HttpStatus.OK);
-    }
+//    @GetMapping(value = "/priority")
+//    public ResponseEntity<List<Item>> getItemByPriority(@RequestParam Priority priority,
+//                                                        @PathVariable Long id){
+////        List<Item> items = itemService.getItemByPriority(priority);
+//        return new ResponseEntity<>(items, HttpStatus.OK);
+//    }
 
 
 

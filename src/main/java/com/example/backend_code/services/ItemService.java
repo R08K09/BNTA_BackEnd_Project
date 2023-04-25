@@ -8,6 +8,7 @@ import com.example.backend_code.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -58,8 +59,9 @@ public class ItemService {
 
 
     public List<Item> getItemByPriority(Priority priority) {
-        List<Item> filteredItems = itemRepository.findAll();
-        for(Item items : filteredItems){
+        List<Item> allItems = itemRepository.findAll();
+        List<Item> filteredItems = new ArrayList<>();
+        for(Item items : allItems){
             if(items.getPriority() == priority){
                 filteredItems.add(items);
             }
