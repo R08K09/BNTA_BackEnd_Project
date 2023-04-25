@@ -20,6 +20,14 @@ public class ItemService {
     @Autowired
     ToDoListService toDoListService;
 
+    public List<Item> getAllItems(){
+        return itemRepository.findAll();
+    }
+
+    public Item getItemById(Long id) {
+        return itemRepository.findById(id).get();
+    }
+
     public void createItem(Item item){
         itemRepository.save(item);
     }
@@ -28,43 +36,22 @@ public class ItemService {
         itemRepository.deleteById(id);
     }
 
-    public void itemComplete(Long id){
-        // find item based on id
-        Item item = itemRepository.findById(id).get();
-
-        // replace isComplete
-        item.setCompleted(true);
-
-        // save item
-        itemRepository.save(item);
-    }
-
-    public Item findItemById(Long id){
-        return itemRepository.findById(id).get();
-    }
-
-    public List<Item> getAllItems(){
-        return itemRepository.findAll();
-    }
-
     public void addItemToList(Item item, Long id){
-        ToDoList toDoList = toDoListService.findListById(id);
+        ToDoList toDoList = toDoListService.getListById(id);
         item.setToDoList(toDoList);
         itemRepository.save(item);
     }
-
 
     public Item updateItem(ItemDTO itemDTO, Long id) {
         Item updatedItem = itemRepository.findById(id).get();
         updatedItem.setTaskName(itemDTO.getTaskName());
         updatedItem.setDueDate(itemDTO.getDueDate());
         updatedItem.setPriority(itemDTO.getPriority());
-        ToDoList toDoList = toDoListService.findListById(itemDTO.getListId());
+        ToDoList toDoList = toDoListService.getListById(itemDTO.getListId());
         updatedItem.setToDoList(toDoList);
         itemRepository.save(updatedItem);
         return updatedItem;
     }
-
 
     public List<Item> getItemByPriority(Priority priority) {
         List<Item> allItems = itemRepository.findAll();
@@ -82,7 +69,6 @@ public class ItemService {
         item.setCompleted(complete);
         itemRepository.save(item);
         return item;
-
     }
 
 }

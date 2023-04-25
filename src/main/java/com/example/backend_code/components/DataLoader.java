@@ -30,7 +30,8 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
-//        make user
+
+//        make users
         User user = new User("John");
         userRepository.save(user);
 
@@ -54,24 +55,13 @@ public class DataLoader implements ApplicationRunner {
         Item itemThree = new Item("Milk", "12/05/2020", Priority.MEDIUM);
         itemRepository.save(itemThree);
 
-////        add items to their lists
-//        toDoListOne.addItem(itemOne);
-//        toDoListRepository.save(toDoListOne);
-//
-//        toDoListOne.addItem(itemTwo);
-//        toDoListRepository.save(toDoListOne);
-//
-//        toDoListTwo.addItem(itemThree);
-//        toDoListRepository.save(toDoListTwo);
-
+//        set list to items
         itemOne.setToDoList(toDoListOne);
         itemRepository.save(itemOne);
         itemTwo.setToDoList(toDoListTwo);
         itemRepository.save(itemTwo);
         itemThree.setToDoList(toDoListOne);
         itemRepository.save(itemThree);
-
-
 
 //        add users to lists
         toDoListOne.addUser(user);

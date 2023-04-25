@@ -35,7 +35,7 @@ public class ItemController {
     // SHOW
     @GetMapping (value = "/{id}")
     public ResponseEntity<Item> getItemById(@PathVariable Long id) {
-        return new ResponseEntity<>(itemService.findItemById(id), HttpStatus.OK);
+        return new ResponseEntity<>(itemService.getItemById(id), HttpStatus.OK);
     }
 
     // CREATE
@@ -43,13 +43,6 @@ public class ItemController {
     public ResponseEntity<Item> postItem(@RequestBody Item item) {
         itemService.createItem(item);
         return new ResponseEntity<>(item, HttpStatus.CREATED);
-    }
-
-    // DELETE
-    @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Long> deleteItem(@PathVariable Long id) {
-        itemService.deleteItem(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     // UPDATE
@@ -63,6 +56,13 @@ public class ItemController {
     public ResponseEntity<Item> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
         Item completedItem = itemService.setItemComplete(complete, id);
         return new ResponseEntity<>(completedItem, HttpStatus.OK);
+    }
+
+    // DELETE
+    @DeleteMapping (value = "/{id}")
+    public ResponseEntity<Long> deleteItem(@PathVariable Long id) {
+        itemService.deleteItem(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 

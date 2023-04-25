@@ -22,27 +22,20 @@ public class ListController {
     // INDEX
     @GetMapping
     public ResponseEntity<List<ToDoList>> showAllToDoLists(){
-        return  new ResponseEntity<>(toDoListService.findAllLists(), HttpStatus.OK);
+        return  new ResponseEntity<>(toDoListService.getAllLists(), HttpStatus.OK);
     }
 
     // SHOW
     @GetMapping(value = "/{id}")
     public ResponseEntity<ToDoList> getListById(@PathVariable Long id){
-        return new ResponseEntity<>(toDoListService.findListById(id), HttpStatus.OK);
+        return new ResponseEntity<>(toDoListService.getListById(id), HttpStatus.OK);
     }
 
     // CREATE
     @PostMapping
     public ResponseEntity<List<ToDoList>> createList(@RequestBody ListDTO listDTO){
         toDoListService.createList(listDTO);
-        return new ResponseEntity<>(toDoListService.findAllLists(), HttpStatus.CREATED);
-    }
-
-    // DELETE
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> deleteList(@PathVariable Long id){
-        toDoListService.deleteList(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+        return new ResponseEntity<>(toDoListService.getAllLists(), HttpStatus.CREATED);
     }
 
     // UPDATE
@@ -52,12 +45,17 @@ public class ListController {
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
-
     @PatchMapping(value="/{id}")
     public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
         ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
         return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
     }
 
+    // DELETE
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteList(@PathVariable Long id){
+        toDoListService.deleteList(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
 }
