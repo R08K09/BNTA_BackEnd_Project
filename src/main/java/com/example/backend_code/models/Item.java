@@ -35,7 +35,6 @@ public class Item {
     public Item(String taskName, String dueDate, Priority priority){
         this.taskName = taskName;
 
-        this.dueDate = dueDate;
         this.priority = priority;
 
         this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
