@@ -3,6 +3,7 @@ package com.example.backend_code.controllers;
 
 import com.example.backend_code.models.Item;
 import com.example.backend_code.models.ItemDTO;
+import com.example.backend_code.models.Priority;
 import com.example.backend_code.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,13 @@ public class ItemController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+//    filtering request based on property(priority)
+//    this will be a get request
+    @GetMapping
+    public ResponseEntity<List<Item>> getItemByPriority(@RequestParam Priority priority){
+        List<Item> items = itemService.getItemByPriority(priority);
+        return new ResponseEntity<>(items, HttpStatus.OK);
+    }
 
 
 
