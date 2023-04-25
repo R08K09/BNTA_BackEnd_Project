@@ -46,10 +46,6 @@ public class ItemService {
     }
 
     public void addItemToList(Item item, Long id){
-//        Item item = new Item(itemDTO.getTaskName(), itemDTO.getDueDate());
-//        itemRepository.findById(id).get();
-//
-//        ToDoList toDoList
         ToDoList toDoList = toDoListService.findListById(id);
         item.setToDoList(toDoList);
         itemRepository.save(item);
