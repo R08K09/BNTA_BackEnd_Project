@@ -49,4 +49,11 @@ public class ListController {
         ToDoList updatedToDoList = toDoListService.updateToDoList(listDTO, id);
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
+
+    @PutMapping(value="/{id}/complete")
+    public ResponseEntity<ToDoList> setListComplete(@PathVariable Long id){
+        ToDoList completedToDoList = toDoListService.setListComplete(id);
+        return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
+    }
+
 }

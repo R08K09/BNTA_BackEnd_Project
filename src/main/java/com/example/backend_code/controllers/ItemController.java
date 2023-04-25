@@ -3,6 +3,7 @@ package com.example.backend_code.controllers;
 
 import com.example.backend_code.models.Item;
 import com.example.backend_code.models.ItemDTO;
+import com.example.backend_code.models.ToDoList;
 import com.example.backend_code.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,7 +47,11 @@ public class ItemController {
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
-
+    @PutMapping(value="/{id}/complete")
+    public ResponseEntity<Item> setListComplete(@PathVariable Long id){
+        Item completedItem = itemService.setItemComplete(id);
+        return new ResponseEntity<>(completedItem, HttpStatus.OK);
+    }
 
 
 

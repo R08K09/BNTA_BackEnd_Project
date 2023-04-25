@@ -65,4 +65,11 @@ public class ItemService {
         return updatedItem;
     }
 
+    public Item setItemComplete(Long id){
+        Item item = itemRepository.findById(id).get();
+        item.setCompleted(true);
+        itemRepository.save(item);
+        return item;
+    }
+
 }
