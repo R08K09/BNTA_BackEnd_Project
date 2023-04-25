@@ -38,8 +38,8 @@ public class ItemDTO {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+    public void setDueDate(String dueDate) {
+        this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public boolean isCompleted() {
