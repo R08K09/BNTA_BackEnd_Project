@@ -91,7 +91,7 @@ public class ItemService {
         return filteredItems;
     }
 
-    @Scheduled(cron = "0 26 12 1/1 * *", zone = "Europe/London")
+    @Scheduled(cron = "0 0 8 1/1 * *", zone = "Europe/London")
     public void checkDueDates(){
         LocalDate currentDate = LocalDate.now();
         for(Item item : itemRepository.findAll()) {
