@@ -116,7 +116,7 @@ a specific time or at specifc intervals.<br />
 
 Currently the item reminder function is to set to run everyday at 9:00am. When the fucntion runs it checks if the current local date is equal to any of the "dueDate" of any of the items currently in the database, if the current date and dueDate match it will print the task name to the console, reminding the user that a specific task needs to be done.
 
-In the future this function could be built upon to create push notifications to the user to for items that need to be done.
+In the future this function could be built upon to create push notifications to send to the user.
 
 ## Coders
 - Hayan 
