@@ -27,6 +27,9 @@ public class ItemController {
     @GetMapping
     public ResponseEntity<List<Item>> getAllItems(@RequestParam(required=false, name="priority") Priority priority,
                                                   @RequestParam(required = false, name = "completion") Boolean complete) {
+        if(priority != null && complete != null){
+            return new ResponseEntity<>(itemService.getItemByCompletionAndPriority(priority, complete), HttpStatus.OK);
+        }
         if(priority != null){
             return new ResponseEntity<>(itemService.getItemByPriority(priority), HttpStatus.OK);
         }

@@ -96,4 +96,17 @@ public class ItemService {
         return filteredItems;
     }
 
+    public List<Item> getItemByCompletionAndPriority(Priority priority, Boolean complete){
+        List<Item> items = itemRepository.findAll();
+        List<Item> filteredItems = new ArrayList<>();
+        for (Item item : items){
+            if(item.isCompleted() == complete) {
+                if (item.getPriority() == priority){
+                    filteredItems.add(item);
+                }
+            }
+        }
+        return filteredItems;
+    }
+
 }
