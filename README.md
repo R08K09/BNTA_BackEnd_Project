@@ -8,9 +8,14 @@ The languages and technologies that we used are: Java, Spring Boot, postgreSQL, 
 This application will allow a user to create a list and populate their list with items that they need to complete.
 
 ## UML and ERD:
+### UML diagram: 
 ![UML diagram](BackEnd.jpg)
 
-![ERD diagram]()
+### ERD diagram:
+![ERD diagram](erdForBackEnd.png)
+
+### Dummy data:
+
 
 ## Installation instructions: needs more specficity
 Users of the application will need the following:
