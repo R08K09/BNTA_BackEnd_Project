@@ -36,12 +36,6 @@ public class ItemService {
         itemRepository.deleteById(id);
     }
 
-    public void addItemToList(Item item, Long id){
-        ToDoList toDoList = toDoListService.getListById(id);
-        item.setToDoList(toDoList);
-        itemRepository.save(item);
-    }
-
     public Item updateItem(ItemDTO itemDTO, Long id) {
         Item updatedItem = itemRepository.findById(id).get();
         updatedItem.setTaskName(itemDTO.getTaskName());
