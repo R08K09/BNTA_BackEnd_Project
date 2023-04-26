@@ -111,8 +111,11 @@ If we had more time we would try to implement the following functionality:
 
 
 ## Quirks and/or bugs
-One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation takes in a time and <br/>
-when that time has come, the application will remind the user that a specific task needs to be done.
+One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation allows for a function of be run at <br />
+a specific time or at specifc intervals. Currently the item reminder function is to set to run everyday at 9:00am. When the fucntion runs <br />
+it checks if the current local date is equal to any of the "dueDate" of any of the items currently in the database, if the current date and dueDate match <br />
+it will print the task name to the console, reminding the user that a specific task needs to be done. It is possible to take this current functionality and <br / >
+use it to send a push notification to a user.
 
 ## Coders
 - Hayan 
