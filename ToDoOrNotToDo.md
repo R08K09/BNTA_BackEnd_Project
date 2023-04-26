@@ -19,13 +19,35 @@ Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
 * Once you have installed all the necessary applications for this project, run the application on IntelliJ and ensure you have no errors.
 * In Postico, check that the database has __been populated(?)__
-* You can now send the following requests in Postman:
-=
+* You can now send the following requests in Postman working in the `localhost:8080` port:
+
+| Action                               | Request type | Request Path                                     | Request Body Required |    
+|--------------------------------------|--------------|--------------------------------------------------|-----------------------|
+| GetAllList                           | Get          | `/lists`                                         |                       |
+| GetListById                          | Get          | `/list/{id}`                                     |                       |
+| CreateNewList                        | Post         | `/lists`                                         | ✅                     |
+| DeleteList                           | Delete       | `/list/{id}`                                     |                       |
+| UpdateList                           | Put          | `/list/{id}`                                     | ✅                     |
+| SetListToComplete                    | Patch        | `/list/{id}?complete=true`                       |                       |
+| GetAllItems                          | Get          | `/items`                                         |                       |
+| GetItemsByID                         | Get          | `/items/{id}`                                    |                       |
+| AddNewItem                           | Post         | `/items`                                         | ✅                     |
+| UpdateItem                           | Put          | `/items/{id}`                                    | ✅                     |
+| DeleteItem                           | Delete       | `/items/{id}`                                    |                       |
+| SetItemToComplete                    | Patch        | `/items/{id}?complete=true`                      |                       |
+| FilteringItemsByPriorityOrCompletion | Get          | `items?completion={Boolean}&priority={Priority}` |                       |
+| GetAllUsers                          | Get          | `/users`                                         |                       |
+| GetUserById                          | Get          | `/users/{id}`                                    |                       |
+| AddNewUsers                          | Post         | `/users`                                         | ✅                     |
+| UpdateUser                           | Put          | `/users/{id}`                                    | ✅                     |
+| DeleteUser                           | Delete       | `/users/{id}`                                    |                       |
 
 
 
 
 
+Aspirational extensions 
+any other quirks/bugs that users need to be made 
 
 
 
