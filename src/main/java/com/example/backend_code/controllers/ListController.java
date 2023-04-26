@@ -21,7 +21,10 @@ public class ListController {
 
     // INDEX
     @GetMapping
-    public ResponseEntity<List<ToDoList>> showAllToDoLists(){
+    public ResponseEntity<List<ToDoList>> showAllToDoLists(@RequestParam(required = false, name = "completion") Boolean complete){
+        if(complete != null){
+            return new ResponseEntity<>(toDoListService.getListByCompletion(complete), HttpStatus.OK);
+        }
         return  new ResponseEntity<>(toDoListService.getAllLists(), HttpStatus.OK);
     }
 
