@@ -15,9 +15,9 @@ This application will allow a user to create a list and populate their list with
 ![ERD diagram](erdForBackEnd.png)
 
 ### Dummy data:
+![ERD dummy data](ERD%20Dummy%20data.png)
 
-
-## Installation instructions: needs more specficity
+## Installation instructions:
 Users of the application will need the following:
 - IntelliJ - with Maven and Java17
   - IntelliJ will need following dependencies to run the application:
@@ -26,7 +26,7 @@ Users of the application will need the following:
 - Postman
 - Postico
 
-## Running our To-Do List application:needs more specficity
+## Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
   * In resources.application.properties, copy in the following:
     * `spring.datasource.url=jdbc:postgresql://localhost:5432/todolist_db
