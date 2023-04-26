@@ -106,12 +106,19 @@ This section will describe out models and what they will do:
 
 
 ## Aspirational Extensions 
-if we had more time we would try to implement the following functionality:
+If we had more time we would try to implement the following functionality:
 * Filtering the to-do lists by due date
 
 
-## Quirks and/or bugs 
+## Quirks and/or bugs
+One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation takes in a time and <br/>
+when that time has come, the application will remind the user that a specific task needs to be done.
 
+## Coders
+- Hayan 
+- Vincent 
+- Rada 
+- Maryan
 
 
 
