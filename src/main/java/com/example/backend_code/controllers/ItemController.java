@@ -25,9 +25,13 @@ public class ItemController {
 
     // INDEX
     @GetMapping
-    public ResponseEntity<List<Item>> getAllItems(@RequestParam(required=false, name="priority") Priority priority) {
+    public ResponseEntity<List<Item>> getAllItems(@RequestParam(required=false, name="priority") Priority priority,
+                                                  @RequestParam(required = false, name = "completion") Boolean complete) {
         if(priority != null){
             return new ResponseEntity<>(itemService.getItemByPriority(priority), HttpStatus.OK);
+        }
+        if(complete != null){
+            return new ResponseEntity<>(itemService.getItemByCompletion(complete), HttpStatus.OK);
         }
         return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
     }

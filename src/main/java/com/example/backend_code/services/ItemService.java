@@ -85,4 +85,15 @@ public class ItemService {
 
     }
 
+    public List<Item> getItemByCompletion(Boolean complete){
+        List<Item> items = itemRepository.findAll();
+        List<Item> filteredItems = new ArrayList<>();
+        for (Item item : items) {
+            if (item.isCompleted() == complete) {
+                filteredItems.add(item);
+            }
+        }
+        return filteredItems;
+    }
+
 }
