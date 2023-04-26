@@ -1,4 +1,4 @@
-# ToDo-Or-NotToDo - Better than Notion
+# ToDo-OrNot-ToDo - "Better than Notion"
 
 ### Summary:
 This project outlines the backend code of a to-do list, designed to be used for everyday activities.

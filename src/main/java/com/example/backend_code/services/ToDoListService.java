@@ -81,4 +81,14 @@ public class ToDoListService {
         return toDoList;
     }
 
+    public List<ToDoList> getListByCompletion(Boolean complete){
+        List<ToDoList> lists = toDoListRepository.findAll();
+        List<ToDoList> filteredLists = new ArrayList<>();
+        for (ToDoList toDoList : lists) {
+            if (toDoList.getIsCompleted() == complete) {
+                filteredLists.add(toDoList);
+            }
+        }
+        return filteredLists;
+    }
 }
