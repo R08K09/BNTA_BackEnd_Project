@@ -9,9 +9,9 @@ public class UserDTO {
     private String name;
     private List<Long> listIds;
 
-    public UserDTO(String name, List listIds) {
+    public UserDTO(String name) {
         this.name = name;
-        this.listIds = listIds;
+        this.listIds = new ArrayList<>();
     }
 
     public UserDTO() {}
