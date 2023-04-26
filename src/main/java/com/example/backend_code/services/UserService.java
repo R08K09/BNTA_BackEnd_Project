@@ -49,11 +49,15 @@ public class UserService {
 
     public User updateUser(UserDTO userDTO, Long id){
         User userToUpdate = userRepository.findById(id).get();
-        userToUpdate.setName(userDTO.getName());
+        if (userDTO.getName() != null) {
+            userToUpdate.setName(userDTO.getName());
+        }
         userToUpdate.setMasterList(new ArrayList<ToDoList>());
-        for (long listIds : userDTO.getListIds()){
-            ToDoList toDoList = toDoListRepository.findById(listIds).get();
-            userToUpdate.addList(toDoList);
+        if (userDTO.getListIds() != null) {
+            for (long listIds : userDTO.getListIds()) {
+                ToDoList toDoList = toDoListRepository.findById(listIds).get();
+                userToUpdate.addList(toDoList);
+            }
         }
         userRepository.save(userToUpdate);
         return userToUpdate;
