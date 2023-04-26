@@ -36,7 +36,7 @@ public class ItemController {
         if(complete != null){
             return new ResponseEntity<>(itemService.getItemByCompletion(complete), HttpStatus.OK);
         }
-        return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
+        return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK);
     }
 
     // SHOW
