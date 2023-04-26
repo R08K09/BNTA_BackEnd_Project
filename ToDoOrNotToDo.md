@@ -15,7 +15,7 @@ Users of the application will need the following __applications(?)__:
 - Postman
 - Postico
 
-Running our To-Do List application:
+## Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
 * Once you have installed all the necessary applications for this project, run the application on IntelliJ and ensure you have no errors.
 * In Postico, check that the database has __been populated(?)__
@@ -30,12 +30,12 @@ Running our To-Do List application:
 | UpdateList                           | Put          | `/list/{id}`                                     | ✅                     |
 | SetListToComplete                    | Patch        | `/list/{id}?complete=true`                       |                       |
 | GetAllItems                          | Get          | `/items`                                         |                       |
+| FilteringItemsByPriorityOrCompletion | Get          | `items?completion={Boolean}&priority={Priority}` |                       |
 | GetItemsByID                         | Get          | `/items/{id}`                                    |                       |
 | AddNewItem                           | Post         | `/items`                                         | ✅                     |
 | UpdateItem                           | Put          | `/items/{id}`                                    | ✅                     |
 | DeleteItem                           | Delete       | `/items/{id}`                                    |                       |
 | SetItemToComplete                    | Patch        | `/items/{id}?complete=true`                      |                       |
-| FilteringItemsByPriorityOrCompletion | Get          | `items?completion={Boolean}&priority={Priority}` |                       |
 | GetAllUsers                          | Get          | `/users`                                         |                       |
 | GetUserById                          | Get          | `/users/{id}`                                    |                       |
 | AddNewUsers                          | Post         | `/users`                                         | ✅                     |
