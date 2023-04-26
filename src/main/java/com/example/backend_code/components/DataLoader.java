@@ -55,7 +55,7 @@ public class DataLoader implements ApplicationRunner {
         Item itemTwo = new Item("Fold clothes", "01/01/2023", Priority.LOW);
         itemRepository.save(itemTwo);
 
-        Item itemThree = new Item("Milk", "12/05/2020", Priority.MEDIUM);
+        Item itemThree = new Item("Milk", "26/04/2023", Priority.MEDIUM);
         itemRepository.save(itemThree);
 
 //        set list to items
