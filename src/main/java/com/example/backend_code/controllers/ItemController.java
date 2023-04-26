@@ -60,8 +60,8 @@ public class ItemController {
     }
 
     @PatchMapping(value="/{id}")
-    public ResponseEntity<Item> setItemComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
-        Item completedItem = itemService.setItemComplete(complete, id);
+    public ResponseEntity<Item> setItemComplete(@RequestParam(name="completed") boolean completed, @PathVariable Long id){
+        Item completedItem = itemService.setItemComplete(completed, id);
         return new ResponseEntity<>(completedItem, HttpStatus.OK);
     }
 
