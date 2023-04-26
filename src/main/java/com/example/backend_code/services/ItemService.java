@@ -6,8 +6,10 @@ import com.example.backend_code.models.Priority;
 import com.example.backend_code.models.ToDoList;
 import com.example.backend_code.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +89,16 @@ public class ItemService {
             }
         }
         return filteredItems;
+    }
+
+    @Scheduled(cron = "0 26 12 1/1 * *", zone = "Europe/London")
+    public void checkDueDates(){
+        LocalDate currentDate = LocalDate.now();
+        for(Item item : itemRepository.findAll()) {
+            if (item.getDueDate().equals(currentDate)) {
+                System.out.println("Tasks due for today: " + item.getTaskName());
+            }
+        }
     }
 
 }
