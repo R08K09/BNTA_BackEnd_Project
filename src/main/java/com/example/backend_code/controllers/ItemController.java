@@ -53,7 +53,7 @@ public class ItemController {
     }
 
     // UPDATE
-    @PutMapping(value = "/{id}")
+    @PatchMapping(value = "/update/{id}")
     public ResponseEntity<Item> updateItem(@RequestBody ItemDTO itemDTO, @PathVariable Long id){
         Item item = itemService.updateItem(itemDTO, id);
         return new ResponseEntity<>(item, HttpStatus.OK);
