@@ -27,20 +27,20 @@ Users of the application will need the following __applications(?)__:
 | GetListById                          | Get          | `/list/{id}`                                     |                                                                                                         |
 | CreateNewList                        | Post         | `/lists`                                         | ✅ :  <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`          |
 | DeleteList                           | Delete       | `/list/{id}`                                     |                                                                                                         |
-| UpdateList                           | Put          | `/list/{id}`                                     | ✅ : <br/>                                                                                               |
+| UpdateList                           | Put          | `/list/{id}`                                     | ✅ : "                                                                                                   |
 | SetListToComplete                    | Patch        | `/list/{id}?complete=true`                       |                                                                                                         |
 | GetAllItems                          | Get          | `/items`                                         |                                                                                                         |
 | FilteringItemsByPriorityOrCompletion | Get          | `items?completion={Boolean}&priority={Priority}` |                                                                                                         |
 | GetItemsByID                         | Get          | `/items/{id}`                                    |                                                                                                         |
 | AddNewItem                           | Post         | `/items`                                         | ✅ : <br/>  `{"taskName" : "eggs", "dueDate" : "2022-06-23", "priority": "HIGH", "isCompleted" : false}` |
-| UpdateItem                           | Put          | `/items/{id}`                                    | ✅                                                                                                       |
+| UpdateItem                           | Put          | `/items/{id}`                                    | ✅ : "                                                                                                   |
 | DeleteItem                           | Delete       | `/items/{id}`                                    |                                                                                                         |
 | SetItemToComplete                    | Patch        | `/items/{id}?complete=true`                      |                                                                                                         |
 | GetAllUsers                          | Get          | `/users`                                         |                                                                                                         |
 | GetUserById                          | Get          | `/users/{id}`                                    |                                                                                                         |
 | GetUserByName                        | Get          | `/users/by-name/{name}`                          |                                                                                                         |
-| AddNewUsers                          | Post         | `/users`                                         | ✅                                                                                                       |
-| UpdateUser                           | Put          | `/users/{id}`                                    | ✅                                                                                                       |
+| AddNewUsers                          | Post         | `/users`                                         | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
+| UpdateUser                           | Put          | `/users/{id}`                                    | ✅ : "                                                                                                   |
 | DeleteUser                           | Delete       | `/users/{id}`                                    |                                                                                                         |
 
 ## API Description
