@@ -50,15 +50,21 @@ public class DataLoader implements ApplicationRunner {
         ToDoList toDoListTwo = new ToDoList("Shopping List");
         toDoListRepository.save(toDoListTwo);
 
+        ToDoList toDoListThree = new ToDoList("Homework");
+        toDoListRepository.save(toDoListThree);
+
 //        make items
-        Item itemOne = new Item("Vacuum", LocalDate.of(2022, 06, 16), Priority.HIGH);
+        Item itemOne = new Item("Vacuum", LocalDate.of(2022, 6, 16), Priority.HIGH);
         itemRepository.save(itemOne);
 
-        Item itemTwo = new Item("Fold clothes", LocalDate.of(2023, 01, 01), Priority.LOW);
+        Item itemTwo = new Item("Fold clothes", LocalDate.of(2023, 1, 1), Priority.LOW);
         itemRepository.save(itemTwo);
 
-        Item itemThree = new Item("Milk", LocalDate.of(2023, 04, 26), Priority.MEDIUM);
+        Item itemThree = new Item("Milk", LocalDate.of(2023, 4, 26), Priority.MEDIUM);
         itemRepository.save(itemThree);
+
+        Item itemFour = new Item("Maths", LocalDate.of(2023, 4, 30), Priority.HIGH);
+        itemRepository.save(itemFour);
 
 //        set list to items
         itemOne.setToDoList(toDoListOne);
@@ -70,10 +76,14 @@ public class DataLoader implements ApplicationRunner {
         itemThree.setToDoList(toDoListTwo);
         itemRepository.save(itemThree);
 
+        itemFour.setToDoList(toDoListThree);
+        itemRepository.save(itemFour);
+
 //        add users to lists
         user.addList(toDoListOne);
         user2.addList(toDoListTwo);
         user3.addList(toDoListOne);
+        user2.addList(toDoListThree);
 
         userRepository.save(user);
         userRepository.save(user2);
