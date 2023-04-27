@@ -21,11 +21,11 @@ public class ListController {
 
     // INDEX
     @GetMapping
-    public ResponseEntity<List<ToDoList>> showAllToDoLists(@RequestParam(required = false, name = "completion") Boolean complete){
+    public ResponseEntity<List<ToDoList>> getAllListsAndFilters(@RequestParam(required = false, name = "completed") Boolean complete){
         if(complete != null){
             return new ResponseEntity<>(toDoListService.getListByCompletion(complete), HttpStatus.OK);
         }
-        return  new ResponseEntity<>(toDoListService.getAllLists(), HttpStatus.OK);
+        return new ResponseEntity<>(toDoListService.getAllLists(), HttpStatus.OK);
     }
 
     // SHOW
@@ -49,7 +49,7 @@ public class ListController {
     }
 
     @PatchMapping(value="/complete/{id}")
-    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
+    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") Boolean complete, @PathVariable Long id){
         ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
         return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
     }

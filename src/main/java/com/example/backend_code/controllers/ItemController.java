@@ -25,8 +25,8 @@ public class ItemController {
 
     // INDEX
     @GetMapping
-    public ResponseEntity<List<Item>> getAllItems(@RequestParam(required=false, name="priority") Priority priority,
-                                                  @RequestParam(required = false, name = "completion") Boolean complete) {
+    public ResponseEntity<List<Item>> getAllItemsAndFilters(@RequestParam(required=false, name="priority") Priority priority,
+                                                  @RequestParam(required = false, name = "completed") Boolean complete) {
         if(priority != null && complete != null){
             return new ResponseEntity<>(itemService.getItemByCompletionAndPriority(priority, complete), HttpStatus.OK);
         }
@@ -60,7 +60,7 @@ public class ItemController {
     }
 
     @PatchMapping(value="/{id}")
-    public ResponseEntity<Item> setItemComplete(@RequestParam(name="completed") boolean completed, @PathVariable Long id){
+    public ResponseEntity<Item> setItemComplete(@RequestParam(name="completed") Boolean completed, @PathVariable Long id){
         Item completedItem = itemService.setItemComplete(completed, id);
         return new ResponseEntity<>(completedItem, HttpStatus.OK);
     }
