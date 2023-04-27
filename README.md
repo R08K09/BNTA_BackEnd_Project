@@ -1,13 +1,12 @@
 # ToDo-OrNot-ToDo - "Better than Notion"
 
 ### Summary:
-This project outlines the backend code of a to-do list, designed to be used for everyday activities.
-The languages and technologies that we used are: Java, Spring Boot, postgreSQL, IntelliJ, PostMan and Postico.
+This project outlines the backend code of a to-do list, designed to be used for everyday activities. By using our API you can manage every type of tasks in your daily lives.
 
-### Description:
+### Project Description:
 This application will allow a user to create a list and populate their list with items that they need to complete.
 
-## UML and ERD:
+## Diagrams:
 ### UML diagram: 
 ![UML diagram](BackEnd.jpg)
 
@@ -17,14 +16,29 @@ This application will allow a user to create a list and populate their list with
 ### Dummy data:
 ![ERD dummy data](ERD%20Dummy%20data.png)
 
-## Installation instructions:
-Users of the application will need the following:
-- IntelliJ - with Maven and Java17
-  - IntelliJ will need following dependencies to run the application:
-    - Spring Boot DevTools
-    - Spring Web 
-- Postman
+## Relationships
+There are one-to-many and many-to-many relationships:
+* Many users to many lists
+* One list to many items
+
+## Tech Stack
+- IntelliJ IDEA (JDK 17)
+- PostgresSQL
 - Postico
+- Postman
+- Spring Boot
+
+## SetUp Instructions
+Users of the application will need the following:
+1. IntelliJ - with Maven and Java17
+   - IntelliJ will need following dependencies to run the application:
+     - Spring Data JPA
+     - Spring Boot DevTools
+     - Spring Web
+   - Postman
+   - Postico
+2. Cloning the repo...
+
 
 ## Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
@@ -36,7 +50,7 @@ Users of the application will need the following:
       spring.jpa.hibernate.ddl-auto=create-drop
       spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`
 * Once you have installed all the necessary applications and dependencies for this project, run the application on IntelliJ and ensure there are no errors.
-* In Postico, check that the database has been populated, according to the data created in the dataloader.
+* In Postico, check that the database has been populated, according to the data created in the DataLoader.
 * You can now send the following requests in Postman, working in the `localhost:8080` port:
 
 | Action                               | Request type | Request Path                                    | Request Body Required and Example Request Bodies                                                        |    
@@ -111,7 +125,7 @@ If we had more time we would try to implement the following functionality:
 * Filtering the to-do lists by due date
 
 
-## Quirks and/or bugs
+## Quirks
 One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation allows for a function of be run at
 a specific time or at specific intervals.<br />
 
