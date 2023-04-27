@@ -143,7 +143,11 @@ In the future this function could be built upon to create push notifications to 
 If we had more time we would try to implement the following functionality:
 * Filtering the to-do lists by due date
 
-
+## Collaborators
+- Vincent - (GitHub: [dir-V](https://github.com/dir-V))
+- Rada - (GitHub: [R08K09](https://github.com/R08K09))
+- Hayan - (GitHub: [HayanButt](https://github.com/HayanButt))
+- Maryan - (GitHub: [maryan-axmed](https://github.com/maryan-axmed))
 
 
 
