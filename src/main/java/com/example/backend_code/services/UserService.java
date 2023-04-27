@@ -58,11 +58,12 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public void removeUserFromToDoList(Long id){
-        User foundUser = userRepository.getById(id);
-        for (ToDoList toDoList : foundUser.getMasterList()) {
-            toDoList.removeUser(foundUser);
-        }
+    public User removeListFromUser(Long id, Long listId){
+        User foundUser = userRepository.findById(id).get();
+        ToDoList removedList = toDoListRepository.findById(listId).get();
+        foundUser.removeList(removedList);
+        userRepository.save(foundUser);
+        return foundUser;
     }
 
     public User updateUser(UserDTO userDTO, Long id){
