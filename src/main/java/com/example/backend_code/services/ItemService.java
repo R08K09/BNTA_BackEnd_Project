@@ -58,17 +58,6 @@ public class ItemService {
         return updatedItem;
     }
 
-    public List<Item> getItemByPriority(Priority priority) {
-        List<Item> allItems = itemRepository.findAll();
-        List<Item> filteredItems = new ArrayList<>();
-        for (Item items : allItems) {
-            if (items.getPriority() == priority) {
-                filteredItems.add(items);
-            }
-        }
-        return filteredItems;
-    }
-
     public Item setItemComplete(boolean complete, Long id){
         Item item = itemRepository.findById(id).get();
         item.setCompleted(complete);
@@ -82,6 +71,17 @@ public class ItemService {
         for (Item item : items) {
             if (item.isCompleted() == complete) {
                 filteredItems.add(item);
+            }
+        }
+        return filteredItems;
+    }
+
+    public List<Item> getItemByPriority(Priority priority) {
+        List<Item> allItems = itemRepository.findAll();
+        List<Item> filteredItems = new ArrayList<>();
+        for (Item items : allItems) {
+            if (items.getPriority() == priority) {
+                filteredItems.add(items);
             }
         }
         return filteredItems;
