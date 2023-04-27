@@ -29,38 +29,38 @@ Users of the application will need the following:
 ## Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
   * In resources.application.properties, copy in the following:
-    * `spring.datasource.url=jdbc:postgresql://localhost:5432/todolist_db
-      spring.datasource.username=
-      spring.datasource.password=
-      spring.datasource.driver-class-name=org.postgresql.Driver
-      spring.jpa.hibernate.ddl-auto=create-drop
-      spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`
+    * `spring.datasource.url=jdbc:postgresql://localhost:5432/todolist_db`<br/>
+      `spring.datasource.username=`<br/>
+      `spring.datasource.password=`<br/>
+      `spring.datasource.driver-class-name=org.postgresql.Driver`<br/>
+      `spring.jpa.hibernate.ddl-auto=create-drop`<br/>
+      `spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`<br/>
 * Once you have installed all the necessary applications and dependencies for this project, run the application on IntelliJ and ensure there are no errors.
 * In Postico, check that the database has been populated, according to the data created in the dataloader.
 * You can now send the following requests in Postman, working in the `localhost:8080` port:
 
-| Action                               | Request type | Request Path                                    | Request Body Required and Example Request Bodies                                                        |    
-|--------------------------------------|--------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| GetAllLists                          | Get          | `/lists`                                        |                                                                                                         |
-| FilteringListsByCompletion           | Get          | `/lists?completed={Boolean}`                    |                                                                                                         |
-| GetListById                          | Get          | `/lists/{id}`                                   |                                                                                                         |
-| CreateNewList                        | Post         | `/lists`                                        | ✅ :  <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`          |
-| UpdateList                           | Patch        | `/lists/{id}`                                   | ✅ : <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`           |                                   |                                                                                                         |
-| SetListCompletion                    | Patch        | `/lists/complete/{id}?completed={Boolean}`      |                                                                                                         |
-| DeleteList                           | Delete       | `/lists/{id}`                                   |                                                                                                         |
-| GetAllItems                          | Get          | `/items`                                        |                                                                                                         |
-| FilteringItemsByPriorityOrCompletion | Get          | `items?completed={Boolean}&priority={Priority}` |                                                                                                         |
-| GetItemsByID                         | Get          | `/items/{id}`                                   |                                                                                                         |
-| CreateNewItem                        | Post         | `/items`                                        | ✅ : <br/>  `{"taskName" : "eggs", "dueDate" : "2022-06-23", "priority": "HIGH", "isCompleted" : false}` |
-| UpdateItem                           | Patch        | `/items/update/{id}`                            | ✅ : <br/>  `{"taskName" : "eggs", "dueDate" : "2022-06-23", "priority": "HIGH", "isCompleted" : false}` |                               |                                                                                                         |
-| SetItemCompletion                    | Patch        | `/items/{id}?completed=true`                    |                                                                                                         |
-| DeleteItem                           | Delete       | `/items/{id}`                                   |                                                                                                         |
-| GetAllUsers                          | Get          | `/users`                                        |                                                                                                         |
-| GetUserById                          | Get          | `/users/{id}`                                   |                                                                                                         |
-| GetUserByName                        | Get          | `/users/by-name/{name}`                         |                                                                                                         |
-| CreateNewUsers                       | Post         | `/users`                                        | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
-| UpdateUser                           | Patch        | `/users/{id}`                                   | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
-| DeleteUser                           | Delete       | `/users/{id}`                                   |                                                                                                         |
+| Action                               | Request type | Request Path                                    | Request Body Required and Example Request Bodies                                                                               |    
+|--------------------------------------|--------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| GetAllLists                          | Get          | `/lists`                                        |                                                                                                                                |
+| FilteringListsByCompletion           | Get          | `/lists?completed={Boolean}`                    |                                                                                                                                |
+| GetListById                          | Get          | `/lists/{id}`                                   |                                                                                                                                |
+| CreateNewList                        | Post         | `/lists`                                        | ✅ : <br/> `{"listName" : "Gifts",`<br/> `"isCompleted" : "false",`<br/> `"itemIds" : [2],`<br/> `"userIds" : [1]}`             |
+| UpdateList                           | Patch        | `/lists/{id}`                                   | ✅ : <br/> `{"listName" : "Gifts",`<br/> `"isCompleted" : "false",`<br/> `"itemIds" : [2],`<br/> `"userIds" : [1]}`              |                                   |                                                                                                         |
+| SetListCompletion                    | Patch        | `/lists/complete/{id}?completed={Boolean}`      |                                                                                                                                |
+| DeleteList                           | Delete       | `/lists/{id}`                                   |                                                                                                                                |
+| GetAllItems                          | Get          | `/items`                                        |                                                                                                                                |
+| FilteringItemsByPriorityOrCompletion | Get          | `items?completed={Boolean}&priority={Priority}` |                                                                                                                                |
+| GetItemsByID                         | Get          | `/items/{id}`                                   |                                                                                                                                |
+| CreateNewItem                        | Post         | `/items`                                        | ✅ : <br/>  `{"taskName" : "eggs",`<br/> ` "dueDate" : "2022-06-23",`<br/>  `"priority": "HIGH",`<br/> `"isCompleted" : false}` |
+| UpdateItem                           | Patch        | `/items/update/{id}`                            | ✅ : <br/>  `{"taskName" : "eggs",`<br/> ` "dueDate" : "2022-06-23",`<br/>  `"priority": "HIGH",`<br/> `"isCompleted" : false}`  |                               |                                                                                                         |
+| SetItemCompletion                    | Patch        | `/items/{id}?completed=true`                    |                                                                                                                                |
+| DeleteItem                           | Delete       | `/items/{id}`                                   |                                                                                                                                |
+| GetAllUsers                          | Get          | `/users`                                        |                                                                                                                                |
+| GetUserById                          | Get          | `/users/{id}`                                   |                                                                                                                                |
+| GetUserByName                        | Get          | `/users/by-name/{name}`                         |                                                                                                                                |
+| CreateNewUsers                       | Post         | `/users`                                        | ✅ : <br/> `{"name" : "Tim"}`                                                                                                   |
+| UpdateUser                           | Patch        | `/users/{id}`                                   | ✅ : <br/> `{"name" : "Tim"}`                                                                                                   |
+| DeleteUser                           | Delete       | `/users/{id}`                                   |                                                                                                                                |
 
 ## API Description
 This section will describe out models and what they will do:
