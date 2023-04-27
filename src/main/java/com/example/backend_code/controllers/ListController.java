@@ -48,11 +48,11 @@ public class ListController {
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
-//    @PatchMapping(value="/{id}")
-//    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
-//        ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
-//        return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
-//    }
+    @PatchMapping(value="/complete/{id}")
+    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
+        ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
+        return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
+    }
 
     // DELETE
     @DeleteMapping(value = "/{id}")
