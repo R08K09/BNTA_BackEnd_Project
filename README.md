@@ -1,17 +1,9 @@
 # ToDo-OrNot-ToDo - "Better than Notion"
 
-<<<<<<< HEAD
-## Summary:
-This project outlines the backend code of a to-do list, designed to be used for everyday activities.
-The languages and technologies that we used are: Java, Spring Boot, postgreSQL, IntelliJ, PostMan and Postico.
-
-## Description:
-=======
 ### Summary:
 This project outlines the backend code of a to-do list, designed to be used for everyday activities. By using our API you can manage every type of tasks in your daily lives.
 
 ### Project Description:
->>>>>>> a3e31ab40c713a41f0eb68ea512b026b055c395d
 This application will allow a user to create a list and populate their list with items that they need to complete.
 
 ## Diagrams:
