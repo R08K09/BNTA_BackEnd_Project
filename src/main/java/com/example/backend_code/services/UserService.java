@@ -52,8 +52,8 @@ public class UserService {
         if (userDTO.getName() != null) {
             userToUpdate.setName(userDTO.getName());
         }
-        userToUpdate.setMasterList(new ArrayList<ToDoList>());
         if (userDTO.getListIds() != null) {
+            userToUpdate.setMasterList(new ArrayList<ToDoList>());
             for (long listIds : userDTO.getListIds()) {
                 ToDoList toDoList = toDoListRepository.findById(listIds).get();
                 userToUpdate.addList(toDoList);

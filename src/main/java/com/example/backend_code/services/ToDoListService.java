@@ -44,23 +44,9 @@ public class ToDoListService {
         toDoListRepository.save(toDoList1);
     }
 
-    public ToDoList updateToDoList(ListDTO listDTO, Long id){
+    public ToDoList updateToDoList(ToDoList toDoList, Long id){
         ToDoList listToUpdate = toDoListRepository.findById(id).get();
-        listToUpdate.setListName(listDTO.getListName());
-        listToUpdate.setUsers(new ArrayList<User>());
-        listToUpdate.setItems(new ArrayList<Item>());
-        if (listDTO.getUserIds() != null) {
-            for (Long userId : listDTO.getUserIds()) {
-                User user = userRepository.findById(userId).get();
-                user.addList(listToUpdate);
-            }
-        }
-        if (listDTO.getItemIds() != null) {
-            for (Long itemId : listDTO.getItemIds()) {
-                Item item = itemRepository.findById(itemId).get();
-                item.setToDoList(listToUpdate);
-            }
-        }
+        listToUpdate.setListName(toDoList.getListName());
         toDoListRepository.save(listToUpdate);
         return listToUpdate;
     }

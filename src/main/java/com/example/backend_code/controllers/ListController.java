@@ -43,8 +43,8 @@ public class ListController {
 
     // UPDATE
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<ToDoList> updateToDoList(@RequestBody ListDTO listDTO, @PathVariable Long id){
-        ToDoList updatedToDoList = toDoListService.updateToDoList(listDTO, id);
+    public ResponseEntity<ToDoList> updateToDoList(@RequestBody ToDoList toDoList, @PathVariable Long id){
+        ToDoList updatedToDoList = toDoListService.updateToDoList(toDoList, id);
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
