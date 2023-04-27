@@ -49,7 +49,7 @@ public class ListController {
     }
 
     @PatchMapping(value="/complete/{id}")
-    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") Boolean complete, @PathVariable Long id){
+    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="completed") Boolean complete, @PathVariable Long id){
         ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
         return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
     }
