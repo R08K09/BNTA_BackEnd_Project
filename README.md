@@ -15,7 +15,7 @@ By using our API you can organise all types of tasks into suitable lists and uti
 ![ERD dummy data](ERD%20Dummy%20data.png)
 
 ## Relationships
-There are one-to-many and many-to-many relationships:
+In this project there are one-to-many and many-to-many relationships:
 * Many users to many lists
 * One list to many items
 
@@ -24,45 +24,52 @@ This API will allow multiple users to create lists which can then be populated w
 This section will describe out models and what they will do:
 
 ### User <br/>
-This represents the user that will be allocated to a list.
+This represents the users that can be added, removed and managed in the database. The users will be allocated to lists.
 - Properties of 'User':
-    - Name
-    - masterList which is a list of toDoLists
+    - name
+    - masterList - a list of toDoLists
 
 ### UserDTO <br/>
-This DTO allows us to use 'User' without exposing the properties of 'User'
+This Data Transfer Object class allows us to use 'User' without exposing the properties of 'User'. It is used for transferring data between layers of the application.
 - Properties of 'UserDTO':
-    - Name
-    - List of 'to-do list IDs'
+    - name
+    - listIds - list of 'to-do list IDs'
 
-### List: <br/>
-This represents the to-do list, which will be populated with 'Item's
+### ToDoList: <br/>
+This represents the to-do list which will be populated with multiple 'Item's.
 - Properties of 'List':
+  - listName
+  - isCompleted
+  - users - list of User objects
+  - items - list of Item objects
 
 ### ListDTO: <br/>
-This DTO allows us to use 'List' without exposing the properties of 'List'
+This Data Transfer Object class allows us to use 'List' without exposing the properties of 'List'. It is used for transferring data between layers of the application.
 - Properties of 'ListDTO':
+  - listName
+  - itemIds - list of Item IDs
+  - userIds - list of User IDs
 
 ### Item: <br/>
-This represents tasks that would be added to a to-do list.
+This represents tasks that would belong to a to-do list.
 - Properties of 'Item':
-    - Name
-    - Due date
-    - Priority
-    - isCompleted
-    - To-do list
+  - taskName
+  - dueDate
+  - priority
+  - isCompleted - status (completed or not)
+  - To-do list - the list object that this item is assigned to
 
 ### ItemDTO: <br/>
-This DTO allows us to use 'Item' without exposing the properties of 'Item'
+This Data Transfer Object class allows us to use 'Item' without exposing the properties of 'Item'. It is used for transferring data between layers of the application.
 - Properties of 'ItemDTO':
-    - Name
-    - Due date
-    - Priority
-    - isCompleted
-    - List of 'to-do list IDs'
+    - taskName
+    - dueDate 
+    - priority
+    - isCompleted - status (completed or not)   
+    - listId - id of the list the item is assigned to
 
 ### Priority(Enum) <br/>
-This enum represents the different priority levels of the 'Item'
+This enum represents the different priority levels that an 'Item' can have.
 - Constants:
     - HIGH
     - MEDIUM
@@ -110,7 +117,7 @@ To perform a specific request, add the request path Endpoint to the URL.
 
 Example URL: `http://localhost:8080/lists`
 
-For any request that requires a Request Body to input required details, teh request body must be in JSON format in the raw section. 
+For any request that requires a Request Body to input required details, the request body must be in JSON format in the raw section. 
 
 | Action                               | Method | Request Path (Endpoint)                          | Request Body Required and Example Request Bodies                                                                               | Expected return from Postman                                                                                                                                                                                                                   |  
 |--------------------------------------|:------:|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -134,9 +141,9 @@ For any request that requires a Request Body to input required details, teh requ
 | CreateNewUsers                       |  Post  | `/users`                                         | ✅ : <br/> `{"name" : "Tim"}`                                                                                                   | This endpoint should post a new user, which can be viewed either in Postico, or using the following endpoints; GetAllUsers, GetUseRByID or GetUserByName endpoints.                                                                            |
 | UpdateUser                           | Patch  | `/users/{id}`                                    | ✅ : <br/> `{"name" : "Tim"}`                                                                                                   | This endpoint should allow you to update a property of a specific user, and this change can be viewed in Postico or using the following endpoints; GetAllUsers, GetUseRByID or GetUserByName endpoints.                                        |
 | RemoveListFromUser                   | Patch  | `/remove-list/{id}/{listId}`                     |                                                                                                                                | This endpoint should allow you to remove a list that is currently assigned to a user, based on the IDs of the list and user.                                                                                                                   |
-| DeleteUser                           | Delete | `/users/{id}`                                    |                                                                                                                                | This endpoint should allow you to delete a user, based on their ID.                                                                                                                                                                            |
+| DeleteUser                           | Delete | `/users/{id}`                                    |                                                                                                                                | This endpoint should allow you to delete a user, based on their ID. If that user is the only person that is assigned to the list, the list and the items within the list are also deleted.                                                     |
 
-
+Note: GET methods to read data, POST methods to create data, PUT/PATCH methods to update data, DELETE method to delete data.
 
 ## Quirks
 One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation allows for a function of be run at
