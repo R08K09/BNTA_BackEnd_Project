@@ -58,7 +58,7 @@ Users of the application will need the following:
 | GetAllLists                          | Get          | `/lists`                                        |                                                                                                         |
 | FilteringListsByCompletion           | Get          | `/lists?completed={Boolean}`                    |                                                                                                         |
 | GetListById                          | Get          | `/lists/{id}`                                   |                                                                                                         |
-| CreateNewList                        | Post         | `/lists`                                        | ✅ :  <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`          |
+| CreateNewList                        | Post         | `/lists`                                        | ✅ : <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`           |
 | UpdateList                           | Patch        | `/lists/{id}`                                   | ✅ : <br/> `{ "listName" :  "Gifts", "isCompleted" : "false","itemIds" : [2],"userIds" : [1]}`           |                                   |                                                                                                         |
 | SetListCompletion                    | Patch        | `/lists/complete/{id}?completed={Boolean}`      |                                                                                                         |
 | DeleteList                           | Delete       | `/lists/{id}`                                   |                                                                                                         |
@@ -74,6 +74,7 @@ Users of the application will need the following:
 | GetUserByName                        | Get          | `/users/by-name/{name}`                         |                                                                                                         |
 | CreateNewUsers                       | Post         | `/users`                                        | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
 | UpdateUser                           | Patch        | `/users/{id}`                                   | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
+| RemoveListFromUser                   | Patch        | `/remove-list/{id}/{listId}`                    |                                                                                                         |
 | DeleteUser                           | Delete       | `/users/{id}`                                   |                                                                                                         |
 
 ## API Description
