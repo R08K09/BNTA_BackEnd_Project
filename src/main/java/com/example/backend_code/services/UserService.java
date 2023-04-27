@@ -1,8 +1,10 @@
 package com.example.backend_code.services;
 
+import com.example.backend_code.models.Item;
 import com.example.backend_code.models.ToDoList;
 import com.example.backend_code.models.User;
 import com.example.backend_code.models.UserDTO;
+import com.example.backend_code.repositories.ItemRepository;
 import com.example.backend_code.repositories.ToDoListRepository;
 import com.example.backend_code.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,12 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ItemRepository itemRepository;
+
+    @Autowired
+    ToDoListService toDoListService;
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -37,6 +45,16 @@ public class UserService {
     }
 
     public void deleteUser(Long id){
+        User user = userRepository.findById(id).get();
+        ArrayList<Long> idsToDelete = new ArrayList<>();
+        for(ToDoList toDoList : user.getMasterList()){
+            if (toDoList.getUsers().size() == 1){
+                idsToDelete.add(toDoList.getId());
+            }
+        }
+        for(Long toDoListId : idsToDelete){
+            toDoListService.deleteList(toDoListId);
+        }
         userRepository.deleteById(id);
     }
 

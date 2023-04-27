@@ -53,8 +53,8 @@ public class UserController {
     // DELETE
     @DeleteMapping (value = "/{id}")
     public ResponseEntity<Long> deleteUser(@PathVariable Long id) {
-        userService.removeUserFromToDoList(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+        userService.deleteUser(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
 
