@@ -19,8 +19,13 @@ public class User {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "users")
     @JsonIgnoreProperties({"users"})
+    @ManyToMany
+    @JoinTable(
+            name = "users_lists",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "todolist_id")
+    )
     private List<ToDoList> masterList;
 
 //    CONSTRUCTOR

@@ -52,7 +52,7 @@ public class ToDoListService {
         if (listDTO.getUserIds() != null) {
             for (Long userId : listDTO.getUserIds()) {
                 User user = userRepository.findById(userId).get();
-                listToUpdate.addUser(user);
+                user.addList(listToUpdate);
             }
         }
         if (listDTO.getItemIds() != null) {

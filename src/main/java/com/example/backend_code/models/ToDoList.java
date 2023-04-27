@@ -22,13 +22,8 @@ public class ToDoList {
     @Column
     private boolean isCompleted;
 
+    @ManyToMany(mappedBy = "masterList")
     @JsonIgnoreProperties({"masterList"})
-    @ManyToMany
-    @JoinTable(
-            name = "users_lists",
-            joinColumns = @JoinColumn(name = "todolist_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
     private List<User> users;
 
     @JsonIgnoreProperties({"toDoList"})
