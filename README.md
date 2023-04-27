@@ -112,9 +112,9 @@ If we had more time we would try to implement the following functionality:
 
 ## Quirks and/or bugs
 One quirk of our application is the 'Reminder' functionality; '@Scheduled' annotation allows for a function of be run at
-a specific time or at specifc intervals.<br />
+a specific time or at specific intervals.<br />
 
-Currently the item reminder function is to set to run everyday at 9:00am. When the fucntion runs it checks if the current local date is equal to any of the "dueDate" of any of the items currently in the database, if the current date and dueDate match it will print the task name to the console, reminding the user that a specific task needs to be done.
+Currently, the item reminder function is to set to run every day at 9:00am. When the function runs it checks if the current local date is equal to any of the "dueDate" of any items currently in the database, if the current date and dueDate match it will print the task name to the console, reminding the user that a specific task needs to be done.
 
 In the future this function could be built upon to create push notifications to send to the user.
 
