@@ -56,6 +56,9 @@ public class ToDoListService {
         for(Item item : toDoList.getItems()){
             itemRepository.delete(item);
         }
+        for(User user : toDoList.getUsers()){
+            user.removeList(toDoList);
+        }
         toDoListRepository.deleteById(id);
     }
 

@@ -43,9 +43,15 @@ public class ItemService {
 
     public Item updateItem(ItemDTO itemDTO, Long id) {
         Item updatedItem = itemRepository.findById(id).get();
-        updatedItem.setTaskName(itemDTO.getTaskName());
-        updatedItem.setDueDate(itemDTO.getDueDate());
-        updatedItem.setPriority(itemDTO.getPriority());
+        if (itemDTO.getTaskName() != null) {
+            updatedItem.setTaskName(itemDTO.getTaskName());
+        }
+        if (itemDTO.getDueDate() != null) {
+            updatedItem.setDueDate(itemDTO.getDueDate());
+        }
+        if (itemDTO.getPriority() != null) {
+            updatedItem.setPriority(itemDTO.getPriority());
+        }
         ToDoList toDoList = toDoListService.getListById(itemDTO.getListId());
         updatedItem.setToDoList(toDoList);
         itemRepository.save(updatedItem);

@@ -68,4 +68,8 @@ public class User {
     public void addList(ToDoList toDoList){
         this.masterList.add(toDoList);
     }
+
+    public void removeList(ToDoList toDoList){
+        this.masterList.remove(toDoList);
+    }
 }
