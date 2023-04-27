@@ -1,9 +1,17 @@
 # ToDo-OrNot-ToDo - "Better than Notion"
 
+<<<<<<< HEAD
+## Summary:
+This project outlines the backend code of a to-do list, designed to be used for everyday activities.
+The languages and technologies that we used are: Java, Spring Boot, postgreSQL, IntelliJ, PostMan and Postico.
+
+## Description:
+=======
 ### Summary:
 This project outlines the backend code of a to-do list, designed to be used for everyday activities. By using our API you can manage every type of tasks in your daily lives.
 
 ### Project Description:
+>>>>>>> a3e31ab40c713a41f0eb68ea512b026b055c395d
 This application will allow a user to create a list and populate their list with items that they need to complete.
 
 ## Diagrams:
@@ -43,12 +51,12 @@ Users of the application will need the following:
 ## Running our To-Do List application:
 * In your computer terminal, run the following line: `createdb todolist_db`
   * In resources.application.properties, copy in the following:
-    * `spring.datasource.url=jdbc:postgresql://localhost:5432/todolist_db
-      spring.datasource.username=
-      spring.datasource.password=
-      spring.datasource.driver-class-name=org.postgresql.Driver
-      spring.jpa.hibernate.ddl-auto=create-drop
-      spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`
+    * `spring.datasource.url=jdbc:postgresql://localhost:5432/todolist_db`<br/>
+      `spring.datasource.username=`<br/>
+      `spring.datasource.password=`<br/>
+      `spring.datasource.driver-class-name=org.postgresql.Driver`<br/>
+      `spring.jpa.hibernate.ddl-auto=create-drop`<br/>
+      `spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`<br/>
 * Once you have installed all the necessary applications and dependencies for this project, run the application on IntelliJ and ensure there are no errors.
 * In Postico, check that the database has been populated, according to the data created in the DataLoader.
 * You can now send the following requests in Postman, working in the `localhost:8080` port:
@@ -76,6 +84,7 @@ Users of the application will need the following:
 | UpdateUser                           | Patch        | `/users/{id}`                                   | ✅ : <br/> `{"name" : "Tim"}`                                                                            |
 | RemoveListFromUser                   | Patch        | `/remove-list/{id}/{listId}`                    |                                                                                                         |
 | DeleteUser                           | Delete       | `/users/{id}`                                   |                                                                                                         |
+
 
 ## API Description
 This section will describe out models and what they will do:
@@ -118,12 +127,7 @@ This section will describe out models and what they will do:
       - MEDIUM 
       - LOW
 
-
-
-
-## Aspirational Extensions 
-If we had more time we would try to implement the following functionality:
-* Filtering the to-do lists by due date
+  
 
 
 ## Quirks
@@ -133,6 +137,10 @@ a specific time or at specific intervals.<br />
 Currently, the item reminder function is to set to run every day at 9:00am. When the function runs it checks if the current local date is equal to any of the "dueDate" of any items currently in the database, if the current date and dueDate match it will print the task name to the console, reminding the user that a specific task needs to be done.
 
 In the future this function could be built upon to create push notifications to send to the user.
+
+## Aspirational Extensions
+If we had more time we would try to implement the following functionality:
+* Filtering the to-do lists by due date
 
 ## Coders
 - Hayan 
