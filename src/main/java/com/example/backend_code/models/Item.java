@@ -36,10 +36,10 @@ public class Item {
 
 
 //    CONSTRUCTOR
-    public Item(String taskName, String dueDate, Priority priority){
+    public Item(String taskName, LocalDate dueDate, Priority priority){
         this.taskName = taskName;
         this.priority = priority;
-        this.dueDate = LocalDate.parse(dueDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.dueDate = dueDate;
         this.isCompleted = false;
     }
 

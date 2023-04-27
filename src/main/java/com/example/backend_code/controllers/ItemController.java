@@ -47,9 +47,9 @@ public class ItemController {
 
     // CREATE
     @PostMapping
-    public ResponseEntity<Item> postItem(@RequestBody Item item) {
-        itemService.createItem(item);
-        return new ResponseEntity<>(item, HttpStatus.CREATED);
+    public ResponseEntity<ItemDTO> postItem(@RequestBody ItemDTO itemDTO) {
+        itemService.createItem(itemDTO);
+        return new ResponseEntity<>(itemDTO, HttpStatus.CREATED);
     }
 
     // UPDATE

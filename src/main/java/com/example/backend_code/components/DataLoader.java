@@ -12,6 +12,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -49,13 +51,13 @@ public class DataLoader implements ApplicationRunner {
         toDoListRepository.save(toDoListTwo);
 
 //        make items
-        Item itemOne = new Item("Vacuum", "20/03/2022", Priority.HIGH);
+        Item itemOne = new Item("Vacuum", LocalDate.of(2022, 06, 16), Priority.HIGH);
         itemRepository.save(itemOne);
 
-        Item itemTwo = new Item("Fold clothes", "01/01/2023", Priority.LOW);
+        Item itemTwo = new Item("Fold clothes", LocalDate.of(2023, 01, 01), Priority.LOW);
         itemRepository.save(itemTwo);
 
-        Item itemThree = new Item("Milk", "26/04/2023", Priority.MEDIUM);
+        Item itemThree = new Item("Milk", LocalDate.of(2023, 04, 26), Priority.MEDIUM);
         itemRepository.save(itemThree);
 
 //        set list to items

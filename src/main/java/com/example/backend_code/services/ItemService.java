@@ -30,7 +30,10 @@ public class ItemService {
         return itemRepository.findById(id).get();
     }
 
-    public void createItem(Item item){
+    public void createItem(ItemDTO itemDTO){
+        Item item = new Item(itemDTO.getTaskName(), itemDTO.getDueDate(), itemDTO.getPriority());
+        ToDoList toDoList = toDoListService.getListById(itemDTO.getListId());
+        item.setToDoList(toDoList);
         itemRepository.save(item);
     }
 
