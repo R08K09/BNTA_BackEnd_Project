@@ -33,7 +33,6 @@ public class ToDoListService {
 
     public void createList(ListDTO listDTO){
         ToDoList toDoList1 = new ToDoList(listDTO.getListName());
-
         for (Long userId : listDTO.getUserIds()){
             User user = userRepository.findById(userId).get();
             toDoList1.addUser(user);
@@ -50,13 +49,17 @@ public class ToDoListService {
         listToUpdate.setListName(listDTO.getListName());
         listToUpdate.setUsers(new ArrayList<User>());
         listToUpdate.setItems(new ArrayList<Item>());
-        for (Long userId : listDTO.getUserIds()){
-            User user = userRepository.findById(userId).get();
-            listToUpdate.addUser(user);
+        if (listDTO.getUserIds() != null) {
+            for (Long userId : listDTO.getUserIds()) {
+                User user = userRepository.findById(userId).get();
+                listToUpdate.addUser(user);
+            }
         }
-        for (Long itemId : listDTO.getItemIds()){
-            Item item = itemRepository.findById(itemId).get();
-            listToUpdate.addItem(item);
+        if (listDTO.getItemIds() != null) {
+            for (Long itemId : listDTO.getItemIds()) {
+                Item item = itemRepository.findById(itemId).get();
+                listToUpdate.addItem(item);
+            }
         }
         toDoListRepository.save(listToUpdate);
         return listToUpdate;
