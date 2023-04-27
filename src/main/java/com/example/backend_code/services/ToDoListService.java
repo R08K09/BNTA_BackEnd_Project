@@ -58,7 +58,7 @@ public class ToDoListService {
         if (listDTO.getItemIds() != null) {
             for (Long itemId : listDTO.getItemIds()) {
                 Item item = itemRepository.findById(itemId).get();
-                listToUpdate.addItem(item);
+                item.setToDoList(listToUpdate);
             }
         }
         toDoListRepository.save(listToUpdate);

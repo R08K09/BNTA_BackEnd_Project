@@ -42,17 +42,17 @@ public class ListController {
     }
 
     // UPDATE
-    @PutMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}")
     public ResponseEntity<ToDoList> updateToDoList(@RequestBody ListDTO listDTO, @PathVariable Long id){
         ToDoList updatedToDoList = toDoListService.updateToDoList(listDTO, id);
         return new ResponseEntity<>(updatedToDoList, HttpStatus.OK);
     }
 
-    @PatchMapping(value="/{id}")
-    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
-        ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
-        return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
-    }
+//    @PatchMapping(value="/{id}")
+//    public ResponseEntity<ToDoList> setListComplete(@RequestParam(name="complete") boolean complete, @PathVariable Long id){
+//        ToDoList completedToDoList = toDoListService.setListComplete(complete, id);
+//        return new ResponseEntity<>(completedToDoList, HttpStatus.OK);
+//    }
 
     // DELETE
     @DeleteMapping(value = "/{id}")
