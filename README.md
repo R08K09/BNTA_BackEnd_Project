@@ -7,10 +7,10 @@ By using our API you can organise all types of tasks into suitable lists and uti
 ## Diagrams:
 The following diagrams show the relationships and attributes of the models in the project.
 ### UML diagram:
-![UML diagram](BackEnd.jpg)
+![UML diagram](BackendUML.png)
 
 ### ERD diagram:
-![ERD diagram](erdForBackEnd.png)
+![ERD diagram](BackendERD.png)
 
 ### Dummy data:
 ![ERD dummy data](ERD%20Dummy%20data.png)
