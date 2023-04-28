@@ -29,46 +29,46 @@ This section will describe out models and what they will do:
 ### User <br/>
 This represents the users that can be added, removed and managed in the database. The users will be allocated to lists.
 - Properties of 'User':
-    - name
+    - name - string that represents the user's name
     - masterList - a list of toDoLists
 
 ### UserDTO <br/>
 This Data Transfer Object class allows us to use 'User' without exposing the properties of 'User'. It is used for transferring data between layers of the application.
 - Properties of 'UserDTO':
-    - name
+    - name - string that represents the user's name
     - listIds - list of 'to-do list IDs'
 
 ### ToDoList: <br/>
 This represents the to-do list which will be populated with multiple 'Item's.
 - Properties of 'List':
-  - listName
-  - isCompleted
+  - listName - string that represents the list's name
+  - isCompleted - boolean that represents the completion status (completed or not)
   - users - list of User objects
   - items - list of Item objects
 
 ### ListDTO: <br/>
 This Data Transfer Object class allows us to use 'List' without exposing the properties of 'List'. It is used for transferring data between layers of the application.
 - Properties of 'ListDTO':
-  - listName
+  - listName - string that represents the list's name
   - itemIds - list of Item IDs
   - userIds - list of User IDs
 
 ### Item: <br/>
 This represents tasks that would belong to a to-do list.
 - Properties of 'Item':
-  - taskName
-  - dueDate
-  - priority
-  - isCompleted - status (completed or not)
+  - taskName - string that represents the item's name
+  - dueDate - string that represents the item's due date
+  - priority - enum that represents the item's priority
+  - isCompleted - boolean that represents the completion status (completed or not)
   - To-do list - the list object that this item is assigned to
 
 ### ItemDTO: <br/>
 This Data Transfer Object class allows us to use 'Item' without exposing the properties of 'Item'. It is used for transferring data between layers of the application.
 - Properties of 'ItemDTO':
-    - taskName
-    - dueDate 
-    - priority
-    - isCompleted - status (completed or not)   
+    - taskName - string that represents the item's name
+    - dueDate - string that represents the item's due date 
+    - priority - enum that represents the item's priority
+    - isCompleted - boolean that represents the completion status (completed or not)  
     - listId - id of the list the item is assigned to
 
 ### Priority(Enum) <br/>
