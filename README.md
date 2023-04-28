@@ -16,7 +16,7 @@ This application will allow a user to create a list and populate their list with
 
 ## Diagrams:
 ### UML diagram: 
-![UML diagram](BackEnd.jpg)
+![UML diagram](BackEndUML.jpg)
 
 ### ERD diagram:
 ![ERD diagram](erdForBackEnd.png)
