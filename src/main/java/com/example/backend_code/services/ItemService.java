@@ -52,8 +52,10 @@ public class ItemService {
         if (itemDTO.getPriority() != null) {
             updatedItem.setPriority(itemDTO.getPriority());
         }
-        ToDoList toDoList = toDoListService.getListById(itemDTO.getListId());
-        updatedItem.setToDoList(toDoList);
+        if (itemDTO.getListId() != null){
+            ToDoList toDoList = toDoListService.getListById(itemDTO.getListId());
+            updatedItem.setToDoList(toDoList);
+        }
         itemRepository.save(updatedItem);
         return updatedItem;
     }
