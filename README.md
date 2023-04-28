@@ -2,6 +2,8 @@
 
 ### Summary:
 This project outlines the backend code of a to-do list, designed to be used for everyday activities. 
+The motivation behind this project is that it's so hard to be organised these days when there's so much to do in so little time.
+So we decided to make a world-class to-do list application to help everyone get their lives together (because obviously no app of the sort exists already).
 By using our API you can organise all types of tasks into suitable lists and utilise them to manage your day-to-day life.
 
 ## Diagrams:
