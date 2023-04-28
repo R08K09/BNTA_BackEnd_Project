@@ -50,6 +50,12 @@ public class UserController {
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
+    @PatchMapping(value = "remove-list/{id}/{listId}")
+    public ResponseEntity<User> removeListFromUser(@PathVariable Long id, @PathVariable Long listId){
+        User updatedUser = userService.removeListFromUser(id, listId);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
     // DELETE
     @DeleteMapping (value = "/{id}")
     public ResponseEntity<Long> deleteUser(@PathVariable Long id) {
