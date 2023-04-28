@@ -5,7 +5,8 @@ This project outlines the backend code of a to-do list, designed to be used for 
 By using our API you can organise all types of tasks into suitable lists and utilise them to manage your day-to-day life.
 
 ## Diagrams:
-### UML diagram: 
+The following diagrams show the relationships and attributes of the models in the project.
+### UML diagram:
 ![UML diagram](BackEnd.jpg)
 
 ### ERD diagram:
@@ -96,7 +97,7 @@ Users of the application will need to do the following:
    - PostgresSQL
    - Postman
    - Postico
-2. Clone the repository from GitHub. At the top of the page, click on the green Code button. Make sure that SSH is selected and then copy the link provided. Within your terminal, enter the following command:
+2. Clone the repository from GitHub. To do this, at the top of the page, click on the green Code button. Make sure that SSH is selected and then copy the link provided. Then within your terminal, enter the following command:
     <pre><code> git clone git@github.com:R08K09/BNTA_BackEnd_Project.git </code></pre>
 3. Create a new database by running the following line anywhere in your terminal: `createdb todolist_db`
    * In resources.application.properties, copy in the following:
@@ -117,7 +118,7 @@ To perform a specific request, add the request path Endpoint to the URL.
 
 Example URL: `http://localhost:8080/lists`
 
-For any request that requires a Request Body to input required details, the request body must be in JSON format in the raw section. 
+For any request that requires a Request Body to input required details, the request body must be in JSON format in the raw body section. 
 
 | Action                               | Method | Request Path (Endpoint)                          | Request Body Required and Example Request Bodies                                                                               | Expected return from Postman                                                                                                                                                                                                                   |  
 |--------------------------------------|:------:|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -127,7 +128,7 @@ For any request that requires a Request Body to input required details, the requ
 | CreateNewList                        |  Post  | `/lists`                                         | ✅ : <br/> `{"listName" : "Gifts",`<br/> `"isCompleted" : "false",`<br/> `"itemIds" : [2],`<br/> `"userIds" : [1]}`             | This endpoint should post a new item, which can be viewed either in Postico, or using the GetAllLists or GetListsByID endpoints.                                                                                                               |
 | UpdateList                           | Patch  | `/lists/{id}`                                    | ✅ : <br/> `{"listName" : "Gifts",`<br/> `"isCompleted" : "false",`<br/> `"itemIds" : [2],`<br/> `"userIds" : [1]}`             | This endpoint should allow you to update a property of a specific list, and this change can be viewed in Postico or using the GetAllLists or GetListById endpoints.                                                                            |
 | SetListCompletion                    | Patch  | `/lists/complete/{id}?completed={Boolean}`       |                                                                                                                                | This endpoint should allow you to update the isComplete property of a to-do list, and this change can be viewed through Postico or the following endpoints; GetAllLists, GetListById or FilteringListsByCompletion.                            |
-| DeleteList                           | Delete | `/lists/{id}`                                    |                                                                                                                                | This endpoint should allow you to delete a list, based on the ID, which can be viewed in Postico or using the GetAllLists or GetListById endpoints.                                                                                            |
+| DeleteList                           | Delete | `/lists/{id}`                                    |                                                                                                                                | This endpoint should allow you to delete a list, based on the ID, which can be viewed in Postico or using the GetAllLists or GetListById endpoints. When the list is deleted, so are the items within that list.                               |
 | GetAllItems                          |  Get   | `/items`                                         |                                                                                                                                | This endpoint should return all the items from the DataLoader, including the to-do list they are in and the users who own those lists.                                                                                                         |
 | FilteringItemsByPriorityOrCompletion |  Get   | `/items?completed={Boolean}&priority={Priority}` |                                                                                                                                | This endpoint should return items based on their completion status and/or their priority i.e. if the endpoint is `completed=true` and `priority=HIGH`, Postman will return all the items which have been completed and are of `HIGH` priority. |
 | GetItemsByID                         |  Get   | `/items/{id}`                                    |                                                                                                                                | This endpoint should return the item based on their ID, including the to-do list they are in and the users who own those lists.                                                                                                                |
